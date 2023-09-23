@@ -1,5 +1,5 @@
-CMakeFiles/SnakeGame.dir/src/gameObject.cpp.o: \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/gameObject.cpp \
+CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o: \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/9/cmath \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -161,7 +161,7 @@ CMakeFiles/SnakeGame.dir/src/gameObject.cpp.o: \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/gameObject.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
  /usr/include/c++/9/bits/stl_uninitialized.h /usr/include/c++/9/utility \
  /usr/include/c++/9/bits/stl_relops.h \

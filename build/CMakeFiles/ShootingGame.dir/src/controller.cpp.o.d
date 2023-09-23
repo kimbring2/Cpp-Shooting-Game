@@ -1,8 +1,8 @@
-CMakeFiles/SnakeGame.dir/src/controller.cpp.o: \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/controller.cpp \
+CMakeFiles/ShootingGame.dir/src/controller.cpp.o: \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.cpp \
  /usr/include/stdc-predef.h \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/controller.h \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/snake.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -268,4 +268,4 @@ CMakeFiles/SnakeGame.dir/src/controller.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
- /home/kimbring2/CppND-Capstone-Snake-Game/src/gameObject.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h

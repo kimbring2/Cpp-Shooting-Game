@@ -1,4 +1,4 @@
-# Install script for directory: /home/kimbring2/CppND-Capstone-Snake-Game
+# Install script for directory: /home/kimbring2/CppND-Capstone-Shooting-Game
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kimbring2/CppND-Capstone-Snake-Game/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kimbring2/CppND-Capstone-Shooting-Game/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
