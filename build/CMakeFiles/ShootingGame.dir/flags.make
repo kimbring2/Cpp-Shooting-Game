@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/usr/local/include/SDL2 -I/home/kimbring2/CppND-Capstone-Shooting-Game/src
 
-CXX_FLAGS = -std=gnu++17   -std=c++17
+CXX_FLAGS =  -std=c++17 -pthread -std=gnu++17
 

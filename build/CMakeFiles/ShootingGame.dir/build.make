@@ -83,10 +83,24 @@ CMakeFiles/ShootingGame.dir/src/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShootingGame.dir/src/controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.cpp -o CMakeFiles/ShootingGame.dir/src/controller.cpp.s
 
+CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
+CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp
+CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ShootingGame.dir/src/enemy.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/enemy.cpp.o -MF CMakeFiles/ShootingGame.dir/src/enemy.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/enemy.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp
+
+CMakeFiles/ShootingGame.dir/src/enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ShootingGame.dir/src/enemy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp > CMakeFiles/ShootingGame.dir/src/enemy.cpp.i
+
+CMakeFiles/ShootingGame.dir/src/enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShootingGame.dir/src/enemy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp -o CMakeFiles/ShootingGame.dir/src/enemy.cpp.s
+
 CMakeFiles/ShootingGame.dir/src/game.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
 CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.cpp
 CMakeFiles/ShootingGame.dir/src/game.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ShootingGame.dir/src/game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ShootingGame.dir/src/game.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/game.cpp.o -MF CMakeFiles/ShootingGame.dir/src/game.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/game.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.cpp
 
 CMakeFiles/ShootingGame.dir/src/game.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.s: cmake_force
 CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
 CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.cpp
 CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o -MF CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.cpp
 
 CMakeFiles/ShootingGame.dir/src/gameObject.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/ShootingGame.dir/src/gameObject.cpp.s: cmake_force
 CMakeFiles/ShootingGame.dir/src/main.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
 CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/main.cpp
 CMakeFiles/ShootingGame.dir/src/main.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ShootingGame.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ShootingGame.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/main.cpp.o -MF CMakeFiles/ShootingGame.dir/src/main.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/main.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/main.cpp
 
 CMakeFiles/ShootingGame.dir/src/main.cpp.i: cmake_force
@@ -125,10 +139,24 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShootingGame.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kimbring2/CppND-Capstone-Shooting-Game/src/main.cpp -o CMakeFiles/ShootingGame.dir/src/main.cpp.s
 
+CMakeFiles/ShootingGame.dir/src/mobile.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
+CMakeFiles/ShootingGame.dir/src/mobile.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.cpp
+CMakeFiles/ShootingGame.dir/src/mobile.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ShootingGame.dir/src/mobile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/mobile.cpp.o -MF CMakeFiles/ShootingGame.dir/src/mobile.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/mobile.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.cpp
+
+CMakeFiles/ShootingGame.dir/src/mobile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ShootingGame.dir/src/mobile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.cpp > CMakeFiles/ShootingGame.dir/src/mobile.cpp.i
+
+CMakeFiles/ShootingGame.dir/src/mobile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShootingGame.dir/src/mobile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.cpp -o CMakeFiles/ShootingGame.dir/src/mobile.cpp.s
+
 CMakeFiles/ShootingGame.dir/src/player.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
 CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.cpp
 CMakeFiles/ShootingGame.dir/src/player.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ShootingGame.dir/src/player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ShootingGame.dir/src/player.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/player.cpp.o -MF CMakeFiles/ShootingGame.dir/src/player.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/player.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.cpp
 
 CMakeFiles/ShootingGame.dir/src/player.cpp.i: cmake_force
@@ -142,7 +170,7 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.s: cmake_force
 CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: CMakeFiles/ShootingGame.dir/flags.make
 CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.cpp
 CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: CMakeFiles/ShootingGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ShootingGame.dir/src/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ShootingGame.dir/src/renderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShootingGame.dir/src/renderer.cpp.o -MF CMakeFiles/ShootingGame.dir/src/renderer.cpp.o.d -o CMakeFiles/ShootingGame.dir/src/renderer.cpp.o -c /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.cpp
 
 CMakeFiles/ShootingGame.dir/src/renderer.cpp.i: cmake_force
@@ -156,9 +184,11 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.s: cmake_force
 # Object files for target ShootingGame
 ShootingGame_OBJECTS = \
 "CMakeFiles/ShootingGame.dir/src/controller.cpp.o" \
+"CMakeFiles/ShootingGame.dir/src/enemy.cpp.o" \
 "CMakeFiles/ShootingGame.dir/src/game.cpp.o" \
 "CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o" \
 "CMakeFiles/ShootingGame.dir/src/main.cpp.o" \
+"CMakeFiles/ShootingGame.dir/src/mobile.cpp.o" \
 "CMakeFiles/ShootingGame.dir/src/player.cpp.o" \
 "CMakeFiles/ShootingGame.dir/src/renderer.cpp.o"
 
@@ -166,14 +196,16 @@ ShootingGame_OBJECTS = \
 ShootingGame_EXTERNAL_OBJECTS =
 
 ShootingGame: CMakeFiles/ShootingGame.dir/src/controller.cpp.o
+ShootingGame: CMakeFiles/ShootingGame.dir/src/enemy.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/src/game.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/src/main.cpp.o
+ShootingGame: CMakeFiles/ShootingGame.dir/src/mobile.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/src/player.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/src/renderer.cpp.o
 ShootingGame: CMakeFiles/ShootingGame.dir/build.make
 ShootingGame: CMakeFiles/ShootingGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ShootingGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kimbring2/CppND-Capstone-Shooting-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ShootingGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ShootingGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

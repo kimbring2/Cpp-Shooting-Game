@@ -153,6 +153,30 @@ src/controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/controller.cpp.s
 .PHONY : src/controller.cpp.s
 
+src/enemy.o: src/enemy.cpp.o
+.PHONY : src/enemy.o
+
+# target to build an object file
+src/enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/enemy.cpp.o
+.PHONY : src/enemy.cpp.o
+
+src/enemy.i: src/enemy.cpp.i
+.PHONY : src/enemy.i
+
+# target to preprocess a source file
+src/enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/enemy.cpp.i
+.PHONY : src/enemy.cpp.i
+
+src/enemy.s: src/enemy.cpp.s
+.PHONY : src/enemy.s
+
+# target to generate assembly for a file
+src/enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/enemy.cpp.s
+.PHONY : src/enemy.cpp.s
+
 src/game.o: src/game.cpp.o
 .PHONY : src/game.o
 
@@ -225,6 +249,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/mobile.o: src/mobile.cpp.o
+.PHONY : src/mobile.o
+
+# target to build an object file
+src/mobile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/mobile.cpp.o
+.PHONY : src/mobile.cpp.o
+
+src/mobile.i: src/mobile.cpp.i
+.PHONY : src/mobile.i
+
+# target to preprocess a source file
+src/mobile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/mobile.cpp.i
+.PHONY : src/mobile.cpp.i
+
+src/mobile.s: src/mobile.cpp.s
+.PHONY : src/mobile.s
+
+# target to generate assembly for a file
+src/mobile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/mobile.cpp.s
+.PHONY : src/mobile.cpp.s
+
 src/player.o: src/player.cpp.o
 .PHONY : src/player.o
 
@@ -285,6 +333,9 @@ help:
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"
+	@echo "... src/enemy.o"
+	@echo "... src/enemy.i"
+	@echo "... src/enemy.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
@@ -294,6 +345,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/mobile.o"
+	@echo "... src/mobile.i"
+	@echo "... src/mobile.s"
 	@echo "... src/player.o"
 	@echo "... src/player.i"
 	@echo "... src/player.s"
