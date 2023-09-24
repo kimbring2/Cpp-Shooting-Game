@@ -725,6 +725,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h \
+  /usr/include/SDL_ttf.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -1421,6 +1422,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h \
+  /usr/include/SDL_ttf.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2445,6 +2447,7 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h \
+  /usr/include/SDL_ttf.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2808,6 +2811,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/c++/9/numeric:
 
 /usr/include/c++/9/bits/uniform_int_dist.h:
+
+/usr/include/SDL_ttf.h:
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.h:
 

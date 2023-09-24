@@ -300,4 +300,6 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: \
  /usr/include/c++/9/bits/random.tcc /usr/include/c++/9/numeric \
  /usr/include/c++/9/bits/stl_numeric.h \
  /usr/include/c++/9/pstl/glue_numeric_defs.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h \
+ /usr/include/SDL_ttf.h /usr/local/include/SDL2/begin_code.h \
+ /usr/local/include/SDL2/close_code.h

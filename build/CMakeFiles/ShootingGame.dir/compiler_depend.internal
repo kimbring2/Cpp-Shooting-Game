@@ -728,6 +728,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h
+ /usr/include/SDL_ttf.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -1426,6 +1427,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h
+ /usr/include/SDL_ttf.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -2453,6 +2455,7 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h
+ /usr/include/SDL_ttf.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h

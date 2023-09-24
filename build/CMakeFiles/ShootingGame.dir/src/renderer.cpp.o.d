@@ -218,6 +218,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
+ /usr/include/SDL_ttf.h /usr/local/include/SDL2/begin_code.h \
+ /usr/local/include/SDL2/close_code.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
  /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/iosfwd \
