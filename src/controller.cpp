@@ -2,25 +2,26 @@
 #include <iostream>
 #include "SDL.h"
 #include "player.h"
+#include "enemy.h"
+#include "bullet.h"
 
 
 void Controller::ChangeDirection(Player &player, Player::Direction input,
-                                 Player::Direction opposite) const {
-  if (player.direction != opposite || player.size == 1) player.direction = input;
+                                 Mobile::Direction opposite) const {
+  if (player.getDirection() != opposite) {
+    player.setDirection(input);
+  }
+
   return;
 }
 
 
-void Controller::HandleInput(bool &running, Player &player) const {
+void Controller::HandleInput(bool &running, Player &player) {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
-    //std::cout << "e.type" << e.type << std::endl;
-
     if (e.type == SDL_QUIT) {
       running = false;
     } else if (e.type == SDL_KEYDOWN) {
-      std::cout << "e.key.keysym.sym" << e.key.keysym.sym << std::endl;
-      
       switch (e.key.keysym.sym) {
         case SDLK_UP:
           ChangeDirection(player, Player::Direction::kUp,
@@ -40,6 +41,15 @@ void Controller::HandleInput(bool &running, Player &player) const {
         case SDLK_RIGHT:
           ChangeDirection(player, Player::Direction::kRight,
                           Player::Direction::kLeft);
+          break;
+        case SDLK_a:
+          //std::cout << "SDLK_a" << std::endl;
+          _bulletSpawned = true;
+
+          int pos_x, pos_y; 
+          player.getPosition(pos_x, pos_y);
+          _bullet = new Bullet(10, 640, 640, pos_x, pos_y, 1, true);
+
           break;
       }
     }

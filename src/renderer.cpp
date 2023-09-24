@@ -3,7 +3,7 @@
 #include <string>
 
 
-void DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius)
+void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius)
 {
    const int32_t diameter = (radius * 2);
 
@@ -42,10 +42,23 @@ void DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32
 }
 
 
-Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_height,
-                   const std::size_t grid_width, const std::size_t grid_height)
-    : screen_width(screen_width), screen_height(screen_height), 
-      grid_width(grid_width), grid_height(grid_height) {
+void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, SDL_Color textColor)
+{
+  SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
+  SDL_Texture* sdlText = SDL_CreateTextureFromSurface(renderer, textSurface);
+  int text_width = textSurface->w;
+  int text_height = textSurface->h;
+  SDL_FreeSurface(textSurface);
+  
+  int win_height = 640;
+  SDL_Rect renderQuad = { static_cast<int>(x), static_cast<int>(y), text_width, text_height };
+  SDL_RenderCopy(renderer, sdlText, NULL, &renderQuad);
+  SDL_DestroyTexture(sdlText);
+}
+
+
+Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_height)
+    : screen_width(screen_width), screen_height(screen_height) {
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
@@ -67,6 +80,15 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
+
+  if (TTF_Init() != 0) {
+    std::cerr << "failed to init the TTF: " << TTF_GetError() << std::endl;
+  }
+
+  font = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 18);
+  if(!font) {
+    std::cerr << "no font found: " << TTF_GetError() << std::endl;
+  }
 }
 
 
@@ -76,51 +98,65 @@ Renderer::~Renderer() {
 }
 
 
-void Renderer::Render(Player const player, SDL_Point const &food) {
-  SDL_Rect block;
-  block.w = screen_width / grid_width;
-  block.h = screen_height / grid_height;
-
+void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enemy> enemy,
+                      std::vector<std::shared_ptr<Bullet>> bullets) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
   // Render food
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
 
-  // Render player's body
-  /*
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : player.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
-    SDL_RenderFillRect(sdl_renderer, &block);
-  }
-  */
+  // Render player
+  int player_pos_x, player_pos_y; 
+  player.getPosition(player_pos_x, player_pos_y);
 
-  //std::cout << "(snake.body).size(): " << (snake.body).size() << std::endl;
-  //SDL_Point snake_head = snake.body[0];
-  //int head_x = snake_head.x;
-  //int head_y = snake_head.y;
-  //std::cout << "head_x: " << head_x << ", head_y: " << head_y << std::endl;
+  int player_hp;
+  player.getHp(player_hp);
+  std::string hp_text = std::to_string(player_hp);
+  SDL_Color textColor = { 255, 255, 255, 0 };
+  //DrawText(sdl_renderer, score_text, player_pos_x, player_pos_y - 1.5, textColor);
+  DrawText(sdl_renderer, "player", player_pos_x, player_pos_y, textColor);
 
-  // Render snake's head
-  block.x = static_cast<int>(player.pos_x) * block.w;
-  block.y = static_cast<int>(player.pos_y) * block.h;
-  if (player.alive) {
+  if (player.isAlive()) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-
     //DrawCircle(sdl_renderer, 
-    //           static_cast<int>(snake.head_x) * block.w + int(block.w / 2), 
-    //           static_cast<int>(snake.head_y) * block.h + int(block.h / 2), 
-    //           20);
+    //           static_cast<int>(player_pos_x) * block.w + int(block.w / 2), 
+    //           static_cast<int>(player_pos_y) * block.h + int(block.h / 2), 20);
+    DrawCircle(sdl_renderer, player_pos_x, player_pos_y, 5 * player.getSize());
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
-  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render Enemy
+  int enemy_pos_x, enemy_pos_y; 
+  enemy->getPosition(enemy_pos_x, enemy_pos_y);
+
+  int enemy_hp;
+  enemy->getHp(enemy_hp);
+  hp_text = std::to_string(enemy_hp);
+  textColor = { 255, 0, 0, 0 };
+  DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor);
+  DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor);
+
+  if (enemy->isAlive()) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+    DrawCircle(sdl_renderer, 
+               static_cast<int>(enemy_pos_x), static_cast<int>(enemy_pos_y), 5 * enemy->getSize());
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+
+  // Render Bullets
+  for (auto bullet : bullets)
+  {
+    int bullet_pos_x, bullet_pos_y; 
+    bullet->getPosition(bullet_pos_x, bullet_pos_y);
+
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+    DrawCircle(sdl_renderer, 
+               static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
+  }
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

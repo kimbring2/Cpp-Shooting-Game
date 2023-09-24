@@ -4,44 +4,17 @@
 #include <vector>
 #include <iostream>
 #include "SDL.h"
-#include "gameObject.h"
+#include "mobile.h"
 
 
-class Player : public GameObject {
+class Player : public Mobile {
  public:
-  Player(int grid_width, int grid_height) {
-    std::cout << "Player Constructor" << std::endl;
+  Player(int hp, float speed, std::size_t screen_width, std::size_t screen_height,
+         std::size_t init_x, std::size_t init_y, std::size_t size);
 
-    //_grid_width = grid_width;
-    //_grid_height = grid_height;
-    setGridSize(grid_width, grid_height);
-
-    //_pos_x = grid_width / 2;
-    //_pos_y = grid_height / 2;
-    setPosition(grid_width / 2, grid_height / 2);
-  }
-
-  void Update();
-
-  //void GrowBody();
-  //bool PlayerCell(int x, int y);
-
-  Direction direction = Direction::kUp;
-
-  float speed{0.1f};
-  int size{1};
-  bool alive{true};
-  //float head_x;
-  //float head_y;
-  //std::vector<SDL_Point> body;
+ protected:
 
  private:
-  void UpdatePos();
-  //void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
-
-  //bool growing{false};
-  //int grid_width;
-  //int grid_height;
 };
 
 #endif

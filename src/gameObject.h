@@ -16,44 +16,32 @@ enum ObjectType
 
 class GameObject {
  public:
-  enum class Direction { kUp, kDown, kLeft, kRight };
-
   // constructor / desctructor
-  GameObject();
+  GameObject(std::size_t screen_width, std::size_t screen_height,
+             std::size_t init_x, std::size_t init_y, std::size_t size);
   //~GameObject();
 
   // getter and setter
   int getID() { return _id; }
-  void setPosition(float x, float y);
-  void getPosition(float &x, float &y);
+  int getSize() { return _size; }
+  void setPosition(int x, int y);
+  void getPosition(int &x, int &y);
   ObjectType getType() { return _type; }
-  void setGridSize(int x, int y);
-  void getGridSize(int &x, int &y);
 
   virtual void Update() {};
 
   bool GameObjectCell(int x, int y);
 
-  Direction direction = Direction::kUp;
-
-  float speed{0.1f};
-  int size{1};
-  bool alive{true};
-  //float pos_x;
-  //float pos_y;
-  //std::vector<SDL_Point> body;
-
- private:
+ protected:
   ObjectType _type;                 // identifies the class type
   int _id;                          // every game object has its own unique id
-  float _pos_x, _pos_y;               // object position in pixels
+  int _pos_x, _pos_y;               // object position in pixels
+  int _screen_height, _screen_width;
+  int _size{1};
 
   virtual void UpdatePos() {};
-  //virtual void UpdateBody() {};
 
-  //bool growing{false};
-  int _grid_width;
-  int _grid_height;
+ private:
 };
 
 #endif
