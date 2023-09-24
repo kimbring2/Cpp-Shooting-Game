@@ -1087,9 +1087,11 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/9/algorithm \
   /usr/include/c++/9/array \
   /usr/include/c++/9/backward/auto_ptr.h \
   /usr/include/c++/9/backward/binders.h \
+  /usr/include/c++/9/bits/algorithmfwd.h \
   /usr/include/c++/9/bits/alloc_traits.h \
   /usr/include/c++/9/bits/allocated_ptr.h \
   /usr/include/c++/9/bits/allocator.h \
@@ -1104,12 +1106,16 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/cpp_type_traits.h \
   /usr/include/c++/9/bits/cxxabi_forced.h \
   /usr/include/c++/9/bits/cxxabi_init_exception.h \
+  /usr/include/c++/9/bits/enable_special_members.h \
+  /usr/include/c++/9/bits/erase_if.h \
   /usr/include/c++/9/bits/exception.h \
   /usr/include/c++/9/bits/exception_defines.h \
   /usr/include/c++/9/bits/exception_ptr.h \
   /usr/include/c++/9/bits/functexcept.h \
   /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/hash_bytes.h \
+  /usr/include/c++/9/bits/hashtable.h \
+  /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/ios_base.h \
   /usr/include/c++/9/bits/istream.tcc \
@@ -1121,6 +1127,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/memoryfwd.h \
   /usr/include/c++/9/bits/move.h \
   /usr/include/c++/9/bits/nested_exception.h \
+  /usr/include/c++/9/bits/node_handle.h \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/bits/ostream_insert.h \
   /usr/include/c++/9/bits/parse_numbers.h \
@@ -1136,11 +1143,14 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/shared_ptr_base.h \
   /usr/include/c++/9/bits/specfun.h \
   /usr/include/c++/9/bits/std_abs.h \
+  /usr/include/c++/9/bits/std_function.h \
   /usr/include/c++/9/bits/std_mutex.h \
+  /usr/include/c++/9/bits/stl_algo.h \
   /usr/include/c++/9/bits/stl_algobase.h \
   /usr/include/c++/9/bits/stl_bvector.h \
   /usr/include/c++/9/bits/stl_construct.h \
   /usr/include/c++/9/bits/stl_function.h \
+  /usr/include/c++/9/bits/stl_heap.h \
   /usr/include/c++/9/bits/stl_iterator.h \
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
@@ -1158,6 +1168,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/uniform_int_dist.h \
   /usr/include/c++/9/bits/unique_lock.h \
   /usr/include/c++/9/bits/unique_ptr.h \
+  /usr/include/c++/9/bits/unordered_map.h \
   /usr/include/c++/9/bits/uses_allocator.h \
   /usr/include/c++/9/bits/vector.tcc \
   /usr/include/c++/9/cctype \
@@ -1182,6 +1193,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/ext/numeric_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/ext/type_traits.h \
+  /usr/include/c++/9/functional \
   /usr/include/c++/9/initializer_list \
   /usr/include/c++/9/ios \
   /usr/include/c++/9/iosfwd \
@@ -1193,8 +1205,10 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/mutex \
   /usr/include/c++/9/new \
   /usr/include/c++/9/numeric \
+  /usr/include/c++/9/optional \
   /usr/include/c++/9/ostream \
   /usr/include/c++/9/pstl/execution_defs.h \
+  /usr/include/c++/9/pstl/glue_algorithm_defs.h \
   /usr/include/c++/9/pstl/glue_memory_defs.h \
   /usr/include/c++/9/pstl/glue_numeric_defs.h \
   /usr/include/c++/9/pstl/pstl_config.h \
@@ -1222,6 +1236,7 @@ CMakeFiles/ShootingGame.dir/src/game.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/tuple \
   /usr/include/c++/9/type_traits \
   /usr/include/c++/9/typeinfo \
+  /usr/include/c++/9/unordered_map \
   /usr/include/c++/9/utility \
   /usr/include/c++/9/vector \
   /usr/include/ctype.h \
@@ -1785,9 +1800,11 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/9/algorithm \
   /usr/include/c++/9/array \
   /usr/include/c++/9/backward/auto_ptr.h \
   /usr/include/c++/9/backward/binders.h \
+  /usr/include/c++/9/bits/algorithmfwd.h \
   /usr/include/c++/9/bits/alloc_traits.h \
   /usr/include/c++/9/bits/allocated_ptr.h \
   /usr/include/c++/9/bits/allocator.h \
@@ -1802,12 +1819,16 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/cpp_type_traits.h \
   /usr/include/c++/9/bits/cxxabi_forced.h \
   /usr/include/c++/9/bits/cxxabi_init_exception.h \
+  /usr/include/c++/9/bits/enable_special_members.h \
+  /usr/include/c++/9/bits/erase_if.h \
   /usr/include/c++/9/bits/exception.h \
   /usr/include/c++/9/bits/exception_defines.h \
   /usr/include/c++/9/bits/exception_ptr.h \
   /usr/include/c++/9/bits/functexcept.h \
   /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/hash_bytes.h \
+  /usr/include/c++/9/bits/hashtable.h \
+  /usr/include/c++/9/bits/hashtable_policy.h \
   /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/ios_base.h \
   /usr/include/c++/9/bits/istream.tcc \
@@ -1819,6 +1840,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/memoryfwd.h \
   /usr/include/c++/9/bits/move.h \
   /usr/include/c++/9/bits/nested_exception.h \
+  /usr/include/c++/9/bits/node_handle.h \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/bits/ostream_insert.h \
   /usr/include/c++/9/bits/parse_numbers.h \
@@ -1834,11 +1856,14 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/shared_ptr_base.h \
   /usr/include/c++/9/bits/specfun.h \
   /usr/include/c++/9/bits/std_abs.h \
+  /usr/include/c++/9/bits/std_function.h \
   /usr/include/c++/9/bits/std_mutex.h \
+  /usr/include/c++/9/bits/stl_algo.h \
   /usr/include/c++/9/bits/stl_algobase.h \
   /usr/include/c++/9/bits/stl_bvector.h \
   /usr/include/c++/9/bits/stl_construct.h \
   /usr/include/c++/9/bits/stl_function.h \
+  /usr/include/c++/9/bits/stl_heap.h \
   /usr/include/c++/9/bits/stl_iterator.h \
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
@@ -1856,6 +1881,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/bits/uniform_int_dist.h \
   /usr/include/c++/9/bits/unique_lock.h \
   /usr/include/c++/9/bits/unique_ptr.h \
+  /usr/include/c++/9/bits/unordered_map.h \
   /usr/include/c++/9/bits/uses_allocator.h \
   /usr/include/c++/9/bits/vector.tcc \
   /usr/include/c++/9/cctype \
@@ -1880,6 +1906,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/ext/numeric_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/ext/type_traits.h \
+  /usr/include/c++/9/functional \
   /usr/include/c++/9/initializer_list \
   /usr/include/c++/9/ios \
   /usr/include/c++/9/iosfwd \
@@ -1891,8 +1918,10 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/mutex \
   /usr/include/c++/9/new \
   /usr/include/c++/9/numeric \
+  /usr/include/c++/9/optional \
   /usr/include/c++/9/ostream \
   /usr/include/c++/9/pstl/execution_defs.h \
+  /usr/include/c++/9/pstl/glue_algorithm_defs.h \
   /usr/include/c++/9/pstl/glue_memory_defs.h \
   /usr/include/c++/9/pstl/glue_numeric_defs.h \
   /usr/include/c++/9/pstl/pstl_config.h \
@@ -1920,6 +1949,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/include/c++/9/tuple \
   /usr/include/c++/9/type_traits \
   /usr/include/c++/9/typeinfo \
+  /usr/include/c++/9/unordered_map \
   /usr/include/c++/9/utility \
   /usr/include/c++/9/vector \
   /usr/include/ctype.h \
@@ -3166,11 +3196,27 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/main.cpp:
 
+/usr/include/c++/9/unordered_map:
+
 /usr/include/c++/9/random:
 
 /usr/include/c++/9/numeric:
 
+/usr/include/c++/9/functional:
+
+/usr/include/c++/9/bits/unordered_map.h:
+
 /usr/include/c++/9/bits/uniform_int_dist.h:
+
+/usr/include/c++/9/bits/stl_heap.h:
+
+/usr/include/c++/9/bits/node_handle.h:
+
+/usr/include/c++/9/bits/hashtable_policy.h:
+
+/usr/include/c++/9/bits/hashtable.h:
+
+/usr/include/c++/9/bits/erase_if.h:
 
 /usr/include/SDL_ttf.h:
 
@@ -3214,6 +3260,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/local/include/SDL2/SDL_log.h:
 
+/usr/include/c++/9/algorithm:
+
 /usr/local/include/SDL2/SDL_locale.h:
 
 /usr/local/include/SDL2/SDL_loadso.h:
@@ -3253,6 +3301,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/lib/gcc/x86_64-linux-gnu/9/include/wmmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/vpclmulqdqintrin.h:
+
+/usr/include/c++/9/bits/enable_special_members.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/vaesintrin.h:
 
@@ -3304,6 +3354,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/bmi2intrin.h:
 
+/usr/include/c++/9/bits/algorithmfwd.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vpopcntdqvlintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vpopcntdqintrin.h:
@@ -3325,6 +3377,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/lib/gcc/x86_64-linux-gnu/9/include/tmmintrin.h:
 
 /usr/include/strings.h:
+
+/usr/include/c++/9/bits/stl_algo.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512pfintrin.h:
 
@@ -3411,6 +3465,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/9/pstl/glue_algorithm_defs.h:
 
 /usr/local/include/SDL2/SDL_platform.h:
 
@@ -3604,6 +3660,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/include/c++/9/optional:
+
 /usr/include/c++/9/cwctype:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
@@ -3671,6 +3729,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/c++/9/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/9/bits/std_function.h:
 
 /usr/local/include/SDL2/close_code.h:
 
