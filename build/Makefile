@@ -129,6 +129,30 @@ ShootingGame/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/build
 .PHONY : ShootingGame/fast
 
+src/bullet.o: src/bullet.cpp.o
+.PHONY : src/bullet.o
+
+# target to build an object file
+src/bullet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/bullet.cpp.o
+.PHONY : src/bullet.cpp.o
+
+src/bullet.i: src/bullet.cpp.i
+.PHONY : src/bullet.i
+
+# target to preprocess a source file
+src/bullet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/bullet.cpp.i
+.PHONY : src/bullet.cpp.i
+
+src/bullet.s: src/bullet.cpp.s
+.PHONY : src/bullet.s
+
+# target to generate assembly for a file
+src/bullet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/bullet.cpp.s
+.PHONY : src/bullet.cpp.s
+
 src/controller.o: src/controller.cpp.o
 .PHONY : src/controller.o
 
@@ -330,6 +354,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ShootingGame"
+	@echo "... src/bullet.o"
+	@echo "... src/bullet.i"
+	@echo "... src/bullet.s"
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"
