@@ -15,6 +15,8 @@ class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
   Enemy(int hp, float speed, std::size_t screen_width, std::size_t screen_height,
         std::size_t init_x, std::size_t init_y, std::size_t size);
 
+  ~Enemy();
+
   Direction direction = Direction::kUp;
 
   void simulate();
@@ -24,7 +26,7 @@ class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
 
  protected:
   //std::vector<std::thread> threads;
-  std::thread thread;
+  std::thread t;
 
  private:
   // typical behaviour methods

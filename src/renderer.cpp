@@ -42,8 +42,15 @@ void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t cent
 }
 
 
-void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, SDL_Color textColor)
+void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, SDL_Color textColor,
+                        TTF_Font *font)
 {
+  //font = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", size);
+  //font = TTF_OpenFont("FreeSans.ttf", size);
+  //if (!font) {
+  //  std::cerr << "no font found: " << TTF_GetError() << std::endl;
+  //}
+
   SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
   SDL_Texture* sdlText = SDL_CreateTextureFromSurface(renderer, textSurface);
   int text_width = textSurface->w;
@@ -85,10 +92,8 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
     std::cerr << "failed to init the TTF: " << TTF_GetError() << std::endl;
   }
 
-  font = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 18);
-  if(!font) {
-    std::cerr << "no font found: " << TTF_GetError() << std::endl;
-  }
+  font_18 = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 18);
+  font_30 = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 30);
 }
 
 
@@ -98,7 +103,7 @@ Renderer::~Renderer() {
 }
 
 
-void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enemy> enemy,
+void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::shared_ptr<Enemy>> enemies,
                       std::vector<std::shared_ptr<Bullet>> bullets) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
@@ -108,15 +113,15 @@ void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enem
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
 
   // Render player
-  int player_pos_x, player_pos_y; 
-  player.getPosition(player_pos_x, player_pos_y);
-
   int player_hp;
   player.getHp(player_hp);
   std::string hp_text = std::to_string(player_hp);
   SDL_Color textColor = { 255, 255, 255, 0 };
-  //DrawText(sdl_renderer, score_text, player_pos_x, player_pos_y - 1.5, textColor);
-  DrawText(sdl_renderer, "player", player_pos_x, player_pos_y, textColor);
+  DrawText(sdl_renderer, hp_text, 300, 600, textColor, font_30);
+
+  int player_pos_x, player_pos_y; 
+  player.getPosition(player_pos_x, player_pos_y);
+  DrawText(sdl_renderer, "player", player_pos_x, player_pos_y, textColor, font_18);
 
   if (player.isAlive()) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
@@ -128,6 +133,28 @@ void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enem
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
 
+  // Render Enemies
+  for (auto enemy : enemies) {
+    int enemy_pos_x, enemy_pos_y; 
+    enemy->getPosition(enemy_pos_x, enemy_pos_y);
+
+    int enemy_hp;
+    enemy->getHp(enemy_hp);
+    hp_text = std::to_string(enemy_hp);
+    textColor = { 255, 0, 0, 0 };
+    DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor, font_18);
+    DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor, font_18);
+
+    if (enemy->isAlive()) {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+      DrawCircle(sdl_renderer, 
+                 static_cast<int>(enemy_pos_x), static_cast<int>(enemy_pos_y), 5 * enemy->getSize());
+    } else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    }
+  }
+
+  /*
   // Render Enemy
   int enemy_pos_x, enemy_pos_y; 
   enemy->getPosition(enemy_pos_x, enemy_pos_y);
@@ -136,8 +163,8 @@ void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enem
   enemy->getHp(enemy_hp);
   hp_text = std::to_string(enemy_hp);
   textColor = { 255, 0, 0, 0 };
-  DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor);
-  DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor);
+  DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor, font_18);
+  DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor, font_18);
 
   if (enemy->isAlive()) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
@@ -146,6 +173,7 @@ void Renderer::Render(Player player, SDL_Point const &food, std::shared_ptr<Enem
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
+  */
 
   // Render Bullets
   for (auto bullet : bullets)

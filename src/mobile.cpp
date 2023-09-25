@@ -65,7 +65,7 @@ void Mobile::UpdatePos() {
 
 
 void Mobile::toggleAlive() {
-  _alive = ~_alive;
+  _alive = !_alive;
 }
 
 

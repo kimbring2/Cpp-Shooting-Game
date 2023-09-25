@@ -11,11 +11,17 @@ Enemy::Enemy(int hp, float speed, std::size_t screen_width, std::size_t screen_h
 }
 
 
+Enemy::~Enemy() {
+  std::cout << "Enemy Destructor" << std::endl;
+  t.join();
+}
+
+
 void Enemy::simulate()
 {
     // launch drive function in a thread
     //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
-    thread = std::thread(&Enemy::cycleThroughPhases, this);
+    t = std::thread(&Enemy::cycleThroughPhases, this);
 }
 
 
@@ -28,7 +34,12 @@ void Enemy::cycleThroughPhases()
 
     // init stop watch
     lastUpdate = std::chrono::system_clock::now();
+
+    int step = 0;
     while (_alive) {
+        //std::cout << "step: " << step << std::endl;
+        //std::cout << "_alive: " << _alive << std::endl;
+
         // sleep at every iteration to reduce CPU usage
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
@@ -57,5 +68,9 @@ void Enemy::cycleThroughPhases()
 
             lastUpdate = std::chrono::system_clock::now();
         }
+
+        step += 1;
     }
+
+    //delete this;
 }

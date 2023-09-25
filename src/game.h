@@ -23,7 +23,8 @@ class Game {
 
  private:
   Player player;
-  std::shared_ptr<Enemy> enemy;
+  //std::shared_ptr<Enemy> enemy;
+  std::vector<std::shared_ptr<Enemy>> _enemies;
   std::vector<std::shared_ptr<Bullet>> _bullets;
   SDL_Point food;
 
