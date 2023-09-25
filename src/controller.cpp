@@ -44,11 +44,10 @@ void Controller::HandleInput(bool &running, Player &player) {
           break;
         case SDLK_a:
           //std::cout << "SDLK_a" << std::endl;
-          _bulletSpawned = true;
-
           int pos_x, pos_y; 
           player.getPosition(pos_x, pos_y);
           _bullet = new Bullet(10, 640, 640, pos_x, pos_y, 1, true);
+          _bulletSpawned = true;
 
           break;
       }

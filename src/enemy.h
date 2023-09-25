@@ -8,6 +8,7 @@
 
 #include "SDL.h"
 #include "mobile.h"
+#include "bullet.h"
 
 
 class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
@@ -23,6 +24,9 @@ class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
  
   // miscellaneous
   std::shared_ptr<Enemy> get_shared_this() { return shared_from_this(); }
+
+  bool _bulletSpawned = false;
+  Bullet *_bullet;
 
  protected:
   //std::vector<std::thread> threads;

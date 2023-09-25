@@ -16,6 +16,8 @@
 class Game {
  public:
   Game(std::size_t screen_width, std::size_t screen_height);
+  ~Game();
+
   void Run(Controller &controller, Renderer &renderer,
            std::size_t target_frame_duration);
   int GetScore() const;
@@ -23,7 +25,6 @@ class Game {
 
  private:
   Player player;
-  //std::shared_ptr<Enemy> enemy;
   std::vector<std::shared_ptr<Enemy>> _enemies;
   std::vector<std::shared_ptr<Bullet>> _bullets;
   SDL_Point food;

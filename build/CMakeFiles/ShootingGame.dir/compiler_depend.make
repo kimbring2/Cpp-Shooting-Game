@@ -718,6 +718,7 @@ CMakeFiles/ShootingGame.dir/src/controller.cpp.o: /home/kimbring2/CppND-Capstone
   /usr/local/include/SDL2/close_code.h
 
 CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \

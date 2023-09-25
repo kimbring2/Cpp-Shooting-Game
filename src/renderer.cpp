@@ -3,8 +3,7 @@
 #include <string>
 
 
-void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius)
-{
+void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius) {
    const int32_t diameter = (radius * 2);
 
    int32_t x = (radius - 1);
@@ -13,8 +12,7 @@ void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t cent
    int32_t ty = 1;
    int32_t error = (tx - diameter);
 
-   while (x >= y)
-   {
+   while (x >= y) {
       //  Each of the following renders an octant of the circle
       SDL_RenderDrawPoint(renderer, centreX + x, centreY - y);
       SDL_RenderDrawPoint(renderer, centreX + x, centreY + y);
@@ -25,15 +23,13 @@ void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t cent
       SDL_RenderDrawPoint(renderer, centreX - y, centreY - x);
       SDL_RenderDrawPoint(renderer, centreX - y, centreY + x);
 
-      if (error <= 0)
-      {
+      if (error <= 0){
          ++y;
          error += ty;
          ty += 2;
       }
 
-      if (error > 0)
-      {
+      if (error > 0) {
          --x;
          tx += 2;
          error += (tx - diameter);
@@ -42,15 +38,8 @@ void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t cent
 }
 
 
-void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, SDL_Color textColor,
-                        TTF_Font *font)
-{
-  //font = TTF_OpenFont("/usr/share/fonts/truetype/freefont/FreeSans.ttf", size);
-  //font = TTF_OpenFont("FreeSans.ttf", size);
-  //if (!font) {
-  //  std::cerr << "no font found: " << TTF_GetError() << std::endl;
-  //}
-
+void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, 
+                        SDL_Color textColor, TTF_Font *font) {
   SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
   SDL_Texture* sdlText = SDL_CreateTextureFromSurface(renderer, textSurface);
   int text_width = textSurface->w;
@@ -73,8 +62,8 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
   }
 
   // Create Window
-  sdl_window = SDL_CreateWindow("Player Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screen_width,
-                                screen_height, SDL_WINDOW_SHOWN);
+  sdl_window = SDL_CreateWindow("Player Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+                                screen_width, screen_height + screen_height / 4, SDL_WINDOW_SHOWN);
 
   if (nullptr == sdl_window) {
     std::cerr << "Window could not be created.\n";
@@ -108,26 +97,15 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
-
-  // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  SDL_Color textColor = { 255, 255, 255, 0 }; // White color
 
   // Render player
-  int player_hp;
-  player.getHp(player_hp);
-  std::string hp_text = std::to_string(player_hp);
-  SDL_Color textColor = { 255, 255, 255, 0 };
-  DrawText(sdl_renderer, hp_text, 300, 600, textColor, font_30);
-
   int player_pos_x, player_pos_y; 
   player.getPosition(player_pos_x, player_pos_y);
   DrawText(sdl_renderer, "player", player_pos_x, player_pos_y, textColor, font_18);
 
   if (player.isAlive()) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-    //DrawCircle(sdl_renderer, 
-    //           static_cast<int>(player_pos_x) * block.w + int(block.w / 2), 
-    //           static_cast<int>(player_pos_y) * block.h + int(block.h / 2), 20);
     DrawCircle(sdl_renderer, player_pos_x, player_pos_y, 5 * player.getSize());
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
@@ -140,7 +118,7 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
 
     int enemy_hp;
     enemy->getHp(enemy_hp);
-    hp_text = std::to_string(enemy_hp);
+    std::string hp_text = std::to_string(enemy_hp);
     textColor = { 255, 0, 0, 0 };
     DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor, font_18);
     DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor, font_18);
@@ -154,37 +132,34 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
     }
   }
 
-  /*
-  // Render Enemy
-  int enemy_pos_x, enemy_pos_y; 
-  enemy->getPosition(enemy_pos_x, enemy_pos_y);
-
-  int enemy_hp;
-  enemy->getHp(enemy_hp);
-  hp_text = std::to_string(enemy_hp);
-  textColor = { 255, 0, 0, 0 };
-  DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor, font_18);
-  DrawText(sdl_renderer, hp_text, enemy_pos_x, enemy_pos_y - 25, textColor, font_18);
-
-  if (enemy->isAlive()) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
-    DrawCircle(sdl_renderer, 
-               static_cast<int>(enemy_pos_x), static_cast<int>(enemy_pos_y), 5 * enemy->getSize());
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  }
-  */
-
   // Render Bullets
-  for (auto bullet : bullets)
-  {
+  for (auto bullet : bullets) {
     int bullet_pos_x, bullet_pos_y; 
     bullet->getPosition(bullet_pos_x, bullet_pos_y);
 
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+    if (bullet->getMine()) {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+    } else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+    }
+    
     DrawCircle(sdl_renderer, 
                static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
   }
+
+  // Draw infomation panel
+  //sdl_window = SDL_CreateWindow("Player Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+  //                              screen_width, screen_height + screen_height / 4, SDL_WINDOW_SHOWN);
+  SDL_Point startPoint = {0 , screen_height};
+  SDL_Point endPoint = {screen_width, screen_height};
+  SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 0); // White color
+  SDL_RenderDrawLine(sdl_renderer, startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+
+  int player_hp;
+  player.getHp(player_hp);
+  std::string hp_text = "HP: " + std::to_string(player_hp);
+  textColor = { 255, 255, 255, 0 }; // White color
+  DrawText(sdl_renderer, hp_text, 290, screen_height + 50, textColor, font_30);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

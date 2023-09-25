@@ -6,15 +6,32 @@
 
 
 Game::Game(std::size_t screen_width, std::size_t screen_height)
-    : player(100, 10, screen_width, screen_height, 300, 300, 5), engine(dev()),
+    : player(100, 10, screen_width, screen_height, 300, 590, 5), engine(dev()),
       random_w(0, static_cast<int>(screen_width - 1)), random_h(0, static_cast<int>(screen_height - 1)) {
   PlaceFood();
 
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+}
 
-  //enemy = std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5);
+
+Game::~Game() {
+  std::cout<<"Game Destructor"<<std::endl;
+
+  delete &player;
+
+  // delete all enemy
+  for (auto it = std::begin(_enemies); it != std::end(_enemies); ++it) {
+    (*it)->toggleAlive();
+    delete it->get();
+  }
+
+  // delete all bullet
+  for (auto it = std::begin(_bullets); it != std::end(_bullets); ++it) {
+    (*it)->_destroyed = true;
+    delete it->get();
+  }
 }
 
 
@@ -61,10 +78,25 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
       (controller._bullet)->simulate();
     }
 
+    for (auto _enemy : _enemies) {
+      if (_enemy->_bulletSpawned == true) {
+        _enemy->_bulletSpawned = false;
+        _bullets.emplace_back(_enemy->_bullet);
+        (_enemy->_bullet)->simulate();
+      }
+    }
+
     // Destory bullet when it goes out ouside of screen
     _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), boundary_to_remove), 
                    _bullets.end());
 
+
+    int player_hp;
+    player.getHp(player_hp);
+
+    int player_size = player.getSize();
+
+    // Collision detection loop
     for (auto it_e = _enemies.begin(); it_e != _enemies.end();) {
       int enemy_pos_x, enemy_pos_y; 
       (*it_e)->getPosition(enemy_pos_x, enemy_pos_y);
@@ -73,6 +105,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
       int enemy_hp;
       (*it_e)->getHp(enemy_hp);
 
+      /*
       for (auto it_b = _bullets.begin(); it_b != _bullets.end();) {
         int _bullet_pos_x, _bullet_pos_y;
         (*it_b)->getPosition(_bullet_pos_x, _bullet_pos_y);
@@ -80,22 +113,39 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         float distance = distanceBetweenTwoPoints(enemy_pos_x, enemy_pos_y, 
                                                   _bullet_pos_x, _bullet_pos_y);
 
-        float collision_dis = (*it_b)->getSize() + enemy_size;
+        // If distance between the unit and bullet is below sum of size of both 
+        float collision_dis_enemy = (*it_b)->getSize() + enemy_size;
+        float collision_dis_player = player.getSize() + enemy_size;
 
-        if (distance <= collision_dis * 5) {
-          (*it_b)->_destroyed = true;
-          it_b = _bullets.erase(it_b);
+        if ( (*it_b)->getMine() ) {
+          if (distance <= collision_dis_enemy * 5) {
+            // Enemy collision with bullet
+            (*it_b)->_destroyed = true;
+            it_b = _bullets.erase(it_b);
 
-          if (enemy_hp >= 10) {
-            (*it_e)->setHp(enemy_hp - 10);
+            if (enemy_hp > 10) {
+              (*it_e)->setHp(enemy_hp - 10);
+            } else {
+              //std::cout << "enemy die" << std::endl;
+              (*it_e)->toggleAlive();
+            }
           } else {
-            std::cout << "enemy die" << std::endl;
-            (*it_e)->toggleAlive();
+            it_b++;
           }
         } else {
-          it_b++;
+          if (distance <= collision_dis_player * 5) {
+            // Player collision with bullet
+            if (player_hp > 10) {
+              player.setHp(player_hp - 10);
+            } else {
+              std::cout << "player die" << std::endl;
+            }
+          } else {
+            it_b++;
+          }
         }
       }
+      */
 
       if (!(*it_e)->isAlive()) {
         it_e = _enemies.erase(it_e);
@@ -110,8 +160,8 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
       renderer.Render(player, food, _enemies, _bullets);
     } catch (std::exception& e) {
       // Block of code to handle errors
-      std::cout << "rendering fail" << std::endl;
-      std::cout << e.what() << std::endl;
+      std::cerr << "rendering fail" << std::endl;
+      std::cerr << e.what() << std::endl;
     }
 
     frame_end = SDL_GetTicks();

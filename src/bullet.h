@@ -17,8 +17,9 @@ class Bullet : public GameObject, public std::enable_shared_from_this<Bullet> {
 
   Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
          std::size_t init_x, std::size_t init_y, std::size_t size, bool mine);
-
   ~Bullet();
+
+  bool getMine();
 
   void simulate();
 
@@ -27,6 +28,8 @@ class Bullet : public GameObject, public std::enable_shared_from_this<Bullet> {
  protected:
   float _speed;
   Direction _direction = Direction::kUp;
+  bool _mine;
+
   std::thread t;
 
  private:

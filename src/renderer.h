@@ -24,6 +24,7 @@ class Renderer {
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
+
   TTF_Font *font_18;
   TTF_Font *font_30;
 

@@ -25,9 +25,6 @@ class Mobile : public GameObject {
   void toggleAlive();
   bool isAlive();
 
-  //float speed{0.1f * 32.0f};
-  //bool alive{true};
-
  protected:
   bool _alive = true;  
   int _hp;
