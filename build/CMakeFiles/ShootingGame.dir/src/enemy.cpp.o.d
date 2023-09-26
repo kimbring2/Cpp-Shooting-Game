@@ -290,4 +290,5 @@ CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h

@@ -6,6 +6,7 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -724,6 +725,7 @@ CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: /home/kimbring2/CppND-Capstone-Shoo
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2511,9 +2513,14 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/9/array \
+  /usr/include/c++/9/backward/auto_ptr.h \
   /usr/include/c++/9/backward/binders.h \
   /usr/include/c++/9/bits/alloc_traits.h \
+  /usr/include/c++/9/bits/allocated_ptr.h \
   /usr/include/c++/9/bits/allocator.h \
+  /usr/include/c++/9/bits/atomic_base.h \
+  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
   /usr/include/c++/9/bits/basic_ios.h \
   /usr/include/c++/9/bits/basic_ios.tcc \
   /usr/include/c++/9/bits/basic_string.h \
@@ -2529,6 +2536,7 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/functexcept.h \
   /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/hash_bytes.h \
+  /usr/include/c++/9/bits/invoke.h \
   /usr/include/c++/9/bits/ios_base.h \
   /usr/include/c++/9/bits/istream.tcc \
   /usr/include/c++/9/bits/locale_classes.h \
@@ -2541,10 +2549,15 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/nested_exception.h \
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/bits/ostream_insert.h \
+  /usr/include/c++/9/bits/parse_numbers.h \
   /usr/include/c++/9/bits/postypes.h \
   /usr/include/c++/9/bits/predefined_ops.h \
   /usr/include/c++/9/bits/ptr_traits.h \
   /usr/include/c++/9/bits/range_access.h \
+  /usr/include/c++/9/bits/refwrap.h \
+  /usr/include/c++/9/bits/shared_ptr.h \
+  /usr/include/c++/9/bits/shared_ptr_atomic.h \
+  /usr/include/c++/9/bits/shared_ptr_base.h \
   /usr/include/c++/9/bits/specfun.h \
   /usr/include/c++/9/bits/std_abs.h \
   /usr/include/c++/9/bits/stl_algobase.h \
@@ -2555,28 +2568,36 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
   /usr/include/c++/9/bits/stl_pair.h \
+  /usr/include/c++/9/bits/stl_raw_storage_iter.h \
   /usr/include/c++/9/bits/stl_relops.h \
+  /usr/include/c++/9/bits/stl_tempbuf.h \
   /usr/include/c++/9/bits/stl_uninitialized.h \
   /usr/include/c++/9/bits/stl_vector.h \
   /usr/include/c++/9/bits/streambuf.tcc \
   /usr/include/c++/9/bits/streambuf_iterator.h \
   /usr/include/c++/9/bits/string_view.tcc \
   /usr/include/c++/9/bits/stringfwd.h \
+  /usr/include/c++/9/bits/unique_ptr.h \
+  /usr/include/c++/9/bits/uses_allocator.h \
   /usr/include/c++/9/bits/vector.tcc \
   /usr/include/c++/9/cctype \
   /usr/include/c++/9/cerrno \
+  /usr/include/c++/9/chrono \
   /usr/include/c++/9/clocale \
   /usr/include/c++/9/cmath \
   /usr/include/c++/9/cstdint \
   /usr/include/c++/9/cstdio \
   /usr/include/c++/9/cstdlib \
+  /usr/include/c++/9/ctime \
   /usr/include/c++/9/cwchar \
   /usr/include/c++/9/cwctype \
   /usr/include/c++/9/debug/assertions.h \
   /usr/include/c++/9/debug/debug.h \
   /usr/include/c++/9/exception \
+  /usr/include/c++/9/ext/aligned_buffer.h \
   /usr/include/c++/9/ext/alloc_traits.h \
   /usr/include/c++/9/ext/atomicity.h \
+  /usr/include/c++/9/ext/concurrence.h \
   /usr/include/c++/9/ext/new_allocator.h \
   /usr/include/c++/9/ext/numeric_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
@@ -2588,15 +2609,20 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/istream \
   /usr/include/c++/9/limits \
   /usr/include/c++/9/math.h \
+  /usr/include/c++/9/memory \
   /usr/include/c++/9/new \
   /usr/include/c++/9/ostream \
+  /usr/include/c++/9/pstl/execution_defs.h \
+  /usr/include/c++/9/pstl/glue_memory_defs.h \
   /usr/include/c++/9/pstl/pstl_config.h \
+  /usr/include/c++/9/ratio \
   /usr/include/c++/9/stdexcept \
   /usr/include/c++/9/stdlib.h \
   /usr/include/c++/9/streambuf \
   /usr/include/c++/9/string \
   /usr/include/c++/9/string_view \
   /usr/include/c++/9/system_error \
+  /usr/include/c++/9/thread \
   /usr/include/c++/9/tr1/bessel_function.tcc \
   /usr/include/c++/9/tr1/beta_function.tcc \
   /usr/include/c++/9/tr1/ell_integral.tcc \
@@ -2609,6 +2635,7 @@ CMakeFiles/ShootingGame.dir/src/player.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/tr1/poly_laguerre.tcc \
   /usr/include/c++/9/tr1/riemann_zeta.tcc \
   /usr/include/c++/9/tr1/special_function_util.h \
+  /usr/include/c++/9/tuple \
   /usr/include/c++/9/type_traits \
   /usr/include/c++/9/typeinfo \
   /usr/include/c++/9/utility \
@@ -3229,8 +3256,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.cpp:
 
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h:
-
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.cpp:
 
 /usr/local/include/SDL2/SDL_video.h:
@@ -3373,6 +3398,8 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vbmivlintrin.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vbmiintrin.h:
+
 /usr/include/c++/9/tr1/ell_integral.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/wbnoinvdintrin.h:
@@ -3430,8 +3457,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/c++/9/debug/debug.h:
 
 /usr/include/c++/9/bits/std_mutex.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vbmiintrin.h:
 
 /usr/include/c++/9/stdexcept:
 
@@ -3557,6 +3582,10 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/bits/localefwd.h:
 
+/usr/include/c++/9/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/9/cstdlib:
+
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.cpp:
 
 /usr/include/c++/9/bits/atomic_base.h:
@@ -3570,18 +3599,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/c++/9/bits/ostream.tcc:
 
 /usr/include/c++/9/bits/basic_ios.tcc:
-
-/usr/include/c++/9/tr1/hypergeometric.tcc:
-
-/usr/local/include/SDL2/begin_code.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/c++/9/clocale:
-
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.cpp:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
 
 /usr/include/c++/9/backward/binders.h:
 
@@ -3629,10 +3646,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/tr1/poly_hermite.tcc:
 
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h:
-
-/usr/include/c++/9/bits/locale_facets.h:
-
 /usr/include/c++/9/bits/postypes.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
@@ -3643,19 +3656,27 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
-/usr/include/c++/9/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/9/cstdlib:
-
 /usr/include/c++/9/backward/auto_ptr.h:
 
 /usr/include/c++/9/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/9/limits:
+
+/usr/include/c++/9/bits/stl_vector.h:
+
+/usr/include/ctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/c++/9/bits/basic_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512ifmaintrin.h:
+
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h:
+
+/usr/include/c++/9/bits/locale_facets.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/clflushoptintrin.h:
 
@@ -3693,13 +3714,15 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/bits/stl_algobase.h:
 
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h:
+
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
 /usr/include/c++/9/bits/basic_string.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h:
-
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vnniintrin.h:
 
@@ -3749,9 +3772,17 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/bits/locale_facets.tcc:
 
-/usr/include/c++/9/limits:
+/usr/local/include/SDL2/begin_code.h:
 
-/usr/include/c++/9/bits/stl_vector.h:
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/9/clocale:
+
+/usr/include/c++/9/tr1/hypergeometric.tcc:
+
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.cpp:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/rtmintrin.h:
 
@@ -3780,10 +3811,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/c++/9/bits/stl_bvector.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/ctype.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/c++/9/tr1/legendre_function.tcc:
 

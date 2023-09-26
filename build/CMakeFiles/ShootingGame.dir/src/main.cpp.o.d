@@ -145,8 +145,27 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: \
  /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
- /usr/local/include/SDL2/SDL_stdinc.h \
+ /usr/include/c++/9/thread /usr/include/c++/9/chrono \
+ /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
+ /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/memory \
+ /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/unique_ptr.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/array /usr/include/c++/9/bits/invoke.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h \
+ /usr/include/c++/9/pstl/glue_memory_defs.h \
+ /usr/include/c++/9/pstl/execution_defs.h /usr/local/include/SDL2/SDL.h \
+ /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
  /usr/local/include/SDL2/begin_code.h \
@@ -271,27 +290,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
- /usr/include/c++/9/thread /usr/include/c++/9/chrono \
- /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
- /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/memory \
- /usr/include/c++/9/bits/stl_tempbuf.h \
- /usr/include/c++/9/bits/stl_raw_storage_iter.h \
- /usr/include/c++/9/ext/concurrence.h \
- /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/unique_ptr.h /usr/include/c++/9/tuple \
- /usr/include/c++/9/array /usr/include/c++/9/bits/invoke.h \
- /usr/include/c++/9/bits/shared_ptr.h \
- /usr/include/c++/9/bits/shared_ptr_base.h \
- /usr/include/c++/9/bits/allocated_ptr.h \
- /usr/include/c++/9/bits/refwrap.h \
- /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/shared_ptr_atomic.h \
- /usr/include/c++/9/bits/atomic_base.h \
- /usr/include/c++/9/bits/atomic_lockfree_defines.h \
- /usr/include/c++/9/backward/auto_ptr.h \
- /usr/include/c++/9/pstl/glue_memory_defs.h \
- /usr/include/c++/9/pstl/execution_defs.h /usr/include/c++/9/mutex \
- /usr/include/c++/9/bits/std_mutex.h \
+ /usr/include/c++/9/mutex /usr/include/c++/9/bits/std_mutex.h \
  /usr/include/c++/9/bits/unique_lock.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.h \
