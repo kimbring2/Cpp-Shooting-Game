@@ -8,7 +8,7 @@
 
 class Controller {
  public:
-  void HandleInput(bool &running, Player &player);
+  void HandleInput(bool &running, std::shared_ptr<Player> player);
 
   bool _bulletSpawned = false;
   int _bullet_x, _bullet_y;
@@ -17,7 +17,7 @@ class Controller {
   //Bullet _bullet;
 
  private:
-  void ChangeDirection(Player &player, Player::Direction input,
+  void ChangeDirection(std::shared_ptr<Player> player, Player::Direction input,
                        Player::Direction opposite) const;
 };
 

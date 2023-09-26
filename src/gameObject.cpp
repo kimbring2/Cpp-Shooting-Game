@@ -28,7 +28,6 @@ void GameObject::getPosition(int &x, int &y) {
 
 // Inefficient method to check if cell is occupied by GameObject.
 bool GameObject::GameObjectCell(int x, int y) {
-
   if (x == static_cast<int>(_pos_x) && y == static_cast<int>(_pos_y)) {
     return true;
   }

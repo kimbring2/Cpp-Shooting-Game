@@ -46,14 +46,20 @@ void Mobile::UpdatePos() {
       break;
   }
 
-  setDirection(Direction::kNoop);
+  if (_move_inertia == 0) {
+    setDirection(Direction::kNoop);
+  } else {
+    _move_inertia -= 1;
+  }
 
+  // Check player is out of screen x 
   if (pos_x < 0) {
     pos_x = 0;
   } else if (pos_x > _screen_height) {
     pos_x = _screen_height;
   }
 
+  // Check player is out of screen y
   if (pos_y < 0) {
     pos_y = 0;
   } else if (pos_y > _screen_width) {
@@ -79,8 +85,8 @@ void Mobile::setHp(int hp) {
 }
 
 
-void Mobile::getHp(int &hp) {
-  hp = _hp;
+int Mobile::getHp() {
+  return _hp;
 }
 
 
@@ -91,4 +97,12 @@ void Mobile::setDirection(Mobile::Direction direction) {
 
 Mobile::Direction Mobile::getDirection() {
   return _direction;
+}
+
+void Mobile::setMoveInertia(int inertia) {
+  _move_inertia = inertia;
+}
+
+int Mobile::getMoveInertia() {
+  return _move_inertia;
 }

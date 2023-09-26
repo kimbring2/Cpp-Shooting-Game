@@ -8,8 +8,10 @@
 #include <mutex>
 
 #include "gameObject.h"
+#include "player.h"
 #include "enemy.h"
 
+class Player;
 class Enemy;
 
 class Bullet : public GameObject {
@@ -26,7 +28,8 @@ class Bullet : public GameObject {
 
   void simulate();
 
-  void copySharedVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
+  void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
+  void copyPlayer(const std::shared_ptr<Player>& source);
 
  protected:
   float _speed;
@@ -38,6 +41,7 @@ class Bullet : public GameObject {
 
  private:
   void cycleThroughPhases();
+  std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Enemy>> _enemies;
 };
 

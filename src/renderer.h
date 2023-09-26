@@ -13,7 +13,7 @@ class Renderer {
   Renderer(const std::size_t screen_width, const std::size_t screen_height);
   ~Renderer();
 
-  void Render(Player const Player, SDL_Point const &food, std::vector<std::shared_ptr<Enemy>>, 
+  void Render(std::shared_ptr<Player>, std::vector<std::shared_ptr<Enemy>>, 
               std::vector<std::shared_ptr<Bullet>>);
   void UpdateWindowTitle(int score, int fps);
 

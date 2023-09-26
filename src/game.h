@@ -24,10 +24,9 @@ class Game {
   int GetSize();
 
  private:
-  Player player;
+  std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Enemy>> _enemies;
   std::vector<std::shared_ptr<Bullet>> _bullets;
-  SDL_Point food;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -36,7 +35,6 @@ class Game {
 
   int score{0};
 
-  void PlaceFood();
   void Update();
 };
 

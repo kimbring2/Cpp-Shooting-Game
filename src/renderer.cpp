@@ -92,7 +92,8 @@ Renderer::~Renderer() {
 }
 
 
-void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::shared_ptr<Enemy>> enemies,
+void Renderer::Render(std::shared_ptr<Player> player, 
+                      std::vector<std::shared_ptr<Enemy>> enemies,
                       std::vector<std::shared_ptr<Bullet>> bullets) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
@@ -101,12 +102,12 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
 
   // Render player
   int player_pos_x, player_pos_y; 
-  player.getPosition(player_pos_x, player_pos_y);
+  player->getPosition(player_pos_x, player_pos_y);
   DrawText(sdl_renderer, "player", player_pos_x, player_pos_y, textColor, font_18);
 
-  if (player.isAlive()) {
+  if (player->isAlive()) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-    DrawCircle(sdl_renderer, player_pos_x, player_pos_y, 5 * player.getSize());
+    DrawCircle(sdl_renderer, player_pos_x, player_pos_y, 5 * player->getSize());
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
@@ -116,8 +117,7 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
     int enemy_pos_x, enemy_pos_y; 
     enemy->getPosition(enemy_pos_x, enemy_pos_y);
 
-    int enemy_hp;
-    enemy->getHp(enemy_hp);
+    int enemy_hp = enemy->getHp();
     std::string hp_text = std::to_string(enemy_hp);
     textColor = { 255, 0, 0, 0 };
     DrawText(sdl_renderer, "enemy", enemy_pos_x, enemy_pos_y, textColor, font_18);
@@ -155,8 +155,7 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
   SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 0); // White color
   SDL_RenderDrawLine(sdl_renderer, startPoint.x, startPoint.y, endPoint.x, endPoint.y);
 
-  int player_hp;
-  player.getHp(player_hp);
+  int player_hp = player->getHp();
   std::string hp_text = "HP: " + std::to_string(player_hp);
   textColor = { 255, 255, 255, 0 }; // White color
   DrawText(sdl_renderer, hp_text, 290, screen_height + 50, textColor, font_30);

@@ -17,7 +17,7 @@ class Mobile : public GameObject {
   void Update();
 
   void setHp(int hp);
-  void getHp(int &hp);
+  int getHp();
 
   void setDirection(Direction direction);
   Direction getDirection();
@@ -25,7 +25,11 @@ class Mobile : public GameObject {
   void toggleAlive();
   bool isAlive();
 
+  void setMoveInertia(int inertia);
+  int getMoveInertia();
+
  protected:
+  int _move_inertia = 0;
   bool _alive = true;  
   int _hp;
   float _speed;

@@ -6,17 +6,19 @@
 #include "bullet.h"
 
 
-void Controller::ChangeDirection(Player &player, Player::Direction input,
+void Controller::ChangeDirection(std::shared_ptr<Player> player, Player::Direction input,
                                  Mobile::Direction opposite) const {
-  if (player.getDirection() != opposite) {
-    player.setDirection(input);
+  if (player->getDirection() != opposite) {
+    //player->setDirection(input);
   }
+
+  player->setDirection(input);
 
   return;
 }
 
 
-void Controller::HandleInput(bool &running, Player &player) {
+void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
@@ -43,11 +45,11 @@ void Controller::HandleInput(bool &running, Player &player) {
                           Player::Direction::kLeft);
           break;
         case SDLK_a:
-          //std::cout << "SDLK_a" << std::endl;
+          // shot bullet
           int pos_x, pos_y; 
-          player.getPosition(pos_x, pos_y);
+          player->getPosition(pos_x, pos_y);
 
-          //_bullet = new Bullet(10, 640, 640, pos_x, pos_y, 1, true);
+          // Set new bullet information before sending to the game.cpp
           _bullet_x = pos_x;
           _bullet_y = pos_y;
           _bullet_mine = true;

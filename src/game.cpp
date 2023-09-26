@@ -6,9 +6,11 @@
 
 
 Game::Game(std::size_t screen_width, std::size_t screen_height)
-    : player(100, 10, screen_width, screen_height, 300, 590, 5), engine(dev()),
-      random_w(0, static_cast<int>(screen_width - 1)), random_h(0, static_cast<int>(screen_height - 1)) {
-  PlaceFood();
+    : engine(dev()),
+      random_w(0, static_cast<int>(screen_width - 1)), 
+      random_h(0, static_cast<int>(screen_height - 1)) {
+  //std::cout << "check 1" << std::endl;    
+  player = std::make_shared<Player>(100, 15, screen_width, screen_height, 300, 590, 5);
 
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
   //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
@@ -19,17 +21,20 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
 Game::~Game() {
   std::cout << "Game Destructor" << std::endl;
 
-  delete &player;
+  player = NULL;
+  delete player.get(); // delete the player
 
-  // delete all enemy
+  // delete all enemies
   for (auto it = std::begin(_enemies); it != std::end(_enemies); ++it) {
     (*it)->toggleAlive();
+    (*it) = NULL;
     delete it->get();
   }
 
-  // delete all bullet
+  // delete all bullets
   for (auto it = std::begin(_bullets); it != std::end(_bullets); ++it) {
     (*it)->toggleDestroyed();
+    (*it) = NULL;
     delete it->get();
   }
 }
@@ -43,6 +48,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
   int frame_count = 0;
   bool running = true;
 
+  // // Start the thread of enemy
   for (auto enemy : _enemies) {
     enemy->simulate();
   }
@@ -53,15 +59,29 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, player);
 
+    // Check the player shot the bullet
     if (controller._bulletSpawned == true) {
-      controller._bulletSpawned = false;
-
+      // Make the shared_ptr of generated bullet from player 
       std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(10, 640, 640, 
         controller._bullet_x, controller._bullet_y, 
         1, controller._bullet_mine);
 
+      // Add bullet to vector
       _bullets.emplace_back(bullet);
-      bullet->simulate();
+
+      bullet->simulate(); // Start the thread of bullet
+
+      controller._bulletSpawned = false; // reset the spawned flag
+    }
+
+    // Check the enemy shot the bullet
+    // Use same way as player, but for multiple enemy
+    for (auto _enemy : _enemies) {
+      if (_enemy->_bulletSpawned == true) {
+        _enemy->_bulletSpawned = false;
+        _bullets.emplace_back(_enemy->_bullet);
+        (_enemy->_bullet)->simulate();
+      }
     }
 
     // Delete the destroyed bullet
@@ -70,98 +90,31 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
                     return bullet->getDestroyed();
                    }), _bullets.end());
 
+    // Delete the destroyed enemy
     _enemies.erase(std::remove_if(_enemies.begin(), _enemies.end(), 
                    [](std::shared_ptr<Enemy> enemy) { 
                     return !enemy->isAlive();
                    }), _enemies.end());
 
-    // 
+    // Update the player, enemies infomation of bullet
+    // it will be used for collision detection from thread of bullet 
     for (auto _bullet : _bullets) {
-      _bullet->copySharedVector(_enemies);
+      _bullet->copyPlayer(player);
+      _bullet->copyEnemyVector(_enemies);
     }
 
-    /*
-    int player_hp;
-    player.getHp(player_hp);
-
-    int player_size = player.getSize();
-
-    // Destory bullet when it goes out ouside of screen
-    _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), boundary_to_remove), 
-                   _bullets.end());
-
-
-    // Collision detection loop
-    for (auto it_e = _enemies.begin(); it_e != _enemies.end();) {
-      int enemy_pos_x, enemy_pos_y; 
-      (*it_e)->getPosition(enemy_pos_x, enemy_pos_y);
-      int enemy_size = (*it_e)->getSize();
-
-      int enemy_hp;
-      (*it_e)->getHp(enemy_hp);
-
-      
-      for (auto it_b = _bullets.begin(); it_b != _bullets.end();) {
-        int _bullet_pos_x, _bullet_pos_y;
-        (*it_b)->getPosition(_bullet_pos_x, _bullet_pos_y);
-
-        float distance = distanceBetweenTwoPoints(enemy_pos_x, enemy_pos_y, 
-                                                  _bullet_pos_x, _bullet_pos_y);
-
-        // If distance between the unit and bullet is below sum of size of both 
-        float collision_dis_enemy = (*it_b)->getSize() + enemy_size;
-        float collision_dis_player = player.getSize() + enemy_size;
-
-        if ( (*it_b)->getMine() ) {
-          if (distance <= collision_dis_enemy * 5) {
-            // Enemy collision with bullet
-            (*it_b)->_destroyed = true;
-            it_b = _bullets.erase(it_b);
-
-            if (enemy_hp > 10) {
-              (*it_e)->setHp(enemy_hp - 10);
-            } else {
-              //std::cout << "enemy die" << std::endl;
-              (*it_e)->toggleAlive();
-            }
-          } else {
-            it_b++;
-          }
-        } else {
-          if (distance <= collision_dis_player * 5) {
-            // Player collision with bullet
-            if (player_hp > 10) {
-              player.setHp(player_hp - 10);
-            } else {
-              std::cout << "player die" << std::endl;
-            }
-          } else {
-            it_b++;
-          }
-        }
-      }
-
-      if (!(*it_e)->isAlive()) {
-        it_e = _enemies.erase(it_e);
-      } else {
-        it_e++;
-      }
-    }
-    */
-
+    // Update player information 
     Update();
 
+    // Rendering to screen 
     try {
-      renderer.Render(player, food, _enemies, _bullets);
+      renderer.Render(player, _enemies, _bullets);
     } catch (std::exception& e) {
       // Block of code to handle errors
-      std::cerr << "rendering fail" << std::endl;
-      std::cerr << e.what() << std::endl;
+      std::cerr << "rendering fail: " << e.what() << std::endl;
     }
 
     frame_end = SDL_GetTicks();
-
-    //std::cout << "title_timestamp: " << title_timestamp << ", frame_end: " << frame_end << std::endl;
 
     // Keep track of how long each loop through the input/update/render cycle takes.
     frame_count++;
@@ -169,8 +122,6 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
-      //std::cout << "frame_end - title_timestamp >= 1000" << std::endl;
-
       renderer.UpdateWindowTitle(score, frame_count);
       frame_count = 0;
       title_timestamp = frame_end;
@@ -185,45 +136,20 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 }
 
 
-void Game::PlaceFood() {
-  int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-
-    // Check that the location is not occupied by a player item before placing food.
-    if (!player.GameObjectCell(x, y)) {
-      food.x = x;
-      food.y = y;
-      return;
-    }
-  }
-}
-
-
 void Game::Update() {
-  if (!player.isAlive()) return;
+  if (!player->isAlive()) {
+    return;
+  }
 
-  player.Update();
+  player->Update();
 
   int pos_x, pos_y; 
-  player.getPosition(pos_x, pos_y);
+  player->getPosition(pos_x, pos_y);
 
   int new_x = static_cast<int>(pos_x);
   int new_y = static_cast<int>(pos_y);
-
-  // Check if there's food over here
-  if (food.x == new_x && food.y == new_y) {
-    score++;
-    PlaceFood();
-  }
-
-  //enemy->Update();
-  for (auto enemy : _enemies) {
-    enemy->Update();
-  }
 }
 
 
 int Game::GetScore() const { return score; }
-int Game::GetSize() { return player.getSize(); }
+int Game::GetSize() { return player->getSize(); }
