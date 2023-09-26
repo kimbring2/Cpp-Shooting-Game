@@ -11,7 +11,10 @@ class Controller {
   void HandleInput(bool &running, Player &player);
 
   bool _bulletSpawned = false;
-  Bullet *_bullet;
+  int _bullet_x, _bullet_y;
+  bool _bullet_mine;
+
+  //Bullet _bullet;
 
  private:
   void ChangeDirection(Player &player, Player::Direction input,

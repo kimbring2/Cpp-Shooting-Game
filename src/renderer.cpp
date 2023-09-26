@@ -150,8 +150,8 @@ void Renderer::Render(Player player, SDL_Point const &food, std::vector<std::sha
   // Draw infomation panel
   //sdl_window = SDL_CreateWindow("Player Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
   //                              screen_width, screen_height + screen_height / 4, SDL_WINDOW_SHOWN);
-  SDL_Point startPoint = {0 , screen_height};
-  SDL_Point endPoint = {screen_width, screen_height};
+  SDL_Point startPoint = {0, (int) screen_height};
+  SDL_Point endPoint = {(int) screen_width, (int) screen_height};
   SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 0); // White color
   SDL_RenderDrawLine(sdl_renderer, startPoint.x, startPoint.y, endPoint.x, endPoint.y);
 

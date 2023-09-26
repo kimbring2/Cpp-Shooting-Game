@@ -11,13 +11,13 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
   PlaceFood();
 
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
 }
 
 
 Game::~Game() {
-  std::cout<<"Game Destructor"<<std::endl;
+  std::cout << "Game Destructor" << std::endl;
 
   delete &player;
 
@@ -29,28 +29,9 @@ Game::~Game() {
 
   // delete all bullet
   for (auto it = std::begin(_bullets); it != std::end(_bullets); ++it) {
-    (*it)->_destroyed = true;
+    (*it)->toggleDestroyed();
     delete it->get();
   }
-}
-
-
-bool boundary_to_remove(std::shared_ptr<Bullet> bullet) {
-  // Define your condition here, for example, remove even numbers
-  int bullet_pos_x, bullet_pos_y; 
-  bullet->getPosition(bullet_pos_x, bullet_pos_y);
-
-  if ( (bullet_pos_y < 0) || (bullet_pos_y > 640) ) {
-    bullet->_destroyed = true;
-    return true;
-  } else {
-    return false;
-  }
-}
-
-
-double distanceBetweenTwoPoints(int x, int y, int a, int b) {
-  return sqrt(pow(x - a, 2) + pow(y - b, 2));
 }
 
 
@@ -74,27 +55,41 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
     if (controller._bulletSpawned == true) {
       controller._bulletSpawned = false;
-      _bullets.emplace_back(controller._bullet);
-      (controller._bullet)->simulate();
+
+      std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(10, 640, 640, 
+        controller._bullet_x, controller._bullet_y, 
+        1, controller._bullet_mine);
+
+      _bullets.emplace_back(bullet);
+      bullet->simulate();
     }
 
-    for (auto _enemy : _enemies) {
-      if (_enemy->_bulletSpawned == true) {
-        _enemy->_bulletSpawned = false;
-        _bullets.emplace_back(_enemy->_bullet);
-        (_enemy->_bullet)->simulate();
-      }
+    // Delete the destroyed bullet
+    _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), 
+                   [](std::shared_ptr<Bullet> bullet) { 
+                    return bullet->getDestroyed();
+                   }), _bullets.end());
+
+    _enemies.erase(std::remove_if(_enemies.begin(), _enemies.end(), 
+                   [](std::shared_ptr<Enemy> enemy) { 
+                    return !enemy->isAlive();
+                   }), _enemies.end());
+
+    // 
+    for (auto _bullet : _bullets) {
+      _bullet->copySharedVector(_enemies);
     }
+
+    /*
+    int player_hp;
+    player.getHp(player_hp);
+
+    int player_size = player.getSize();
 
     // Destory bullet when it goes out ouside of screen
     _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), boundary_to_remove), 
                    _bullets.end());
 
-
-    int player_hp;
-    player.getHp(player_hp);
-
-    int player_size = player.getSize();
 
     // Collision detection loop
     for (auto it_e = _enemies.begin(); it_e != _enemies.end();) {
@@ -105,7 +100,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
       int enemy_hp;
       (*it_e)->getHp(enemy_hp);
 
-      /*
+      
       for (auto it_b = _bullets.begin(); it_b != _bullets.end();) {
         int _bullet_pos_x, _bullet_pos_y;
         (*it_b)->getPosition(_bullet_pos_x, _bullet_pos_y);
@@ -145,7 +140,6 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
           }
         }
       }
-      */
 
       if (!(*it_e)->isAlive()) {
         it_e = _enemies.erase(it_e);
@@ -153,6 +147,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         it_e++;
       }
     }
+    */
 
     Update();
 

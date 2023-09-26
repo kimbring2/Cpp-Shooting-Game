@@ -46,7 +46,11 @@ void Controller::HandleInput(bool &running, Player &player) {
           //std::cout << "SDLK_a" << std::endl;
           int pos_x, pos_y; 
           player.getPosition(pos_x, pos_y);
-          _bullet = new Bullet(10, 640, 640, pos_x, pos_y, 1, true);
+
+          //_bullet = new Bullet(10, 640, 640, pos_x, pos_y, 1, true);
+          _bullet_x = pos_x;
+          _bullet_y = pos_y;
+          _bullet_mine = true;
           _bulletSpawned = true;
 
           break;

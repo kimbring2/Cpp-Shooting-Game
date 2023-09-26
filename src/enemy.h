@@ -11,6 +11,9 @@
 #include "bullet.h"
 
 
+class Bullet;
+
+
 class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
  public:
   Enemy(int hp, float speed, std::size_t screen_width, std::size_t screen_height,

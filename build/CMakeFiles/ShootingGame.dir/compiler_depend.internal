@@ -4,7 +4,9 @@
 CMakeFiles/ShootingGame.dir/src/bullet.cpp.o
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.cpp
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h

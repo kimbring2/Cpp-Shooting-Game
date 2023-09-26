@@ -3,6 +3,8 @@
 #include <iostream>
 
 
+std::mutex Bullet::_mtx;
+
 Bullet::Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
                std::size_t init_x, std::size_t init_y, std::size_t size, bool mine) 
   : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed)  {
@@ -25,8 +27,9 @@ Bullet::~Bullet() {
 }
 
 
-bool Bullet::getMine() {
-  return _mine;
+void Bullet::copySharedVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector) {
+  // Copy the vector of shared_ptrs to this class
+  _enemies = sourceVector;
 }
 
 
@@ -35,6 +38,11 @@ void Bullet::simulate()
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
   t = std::thread(&Bullet::cycleThroughPhases, this);
+}
+
+
+double distanceBetweenTwoPoints(int x, int y, int a, int b) {
+  return sqrt(pow(x - a, 2) + pow(y - b, 2));
 }
 
 
@@ -78,8 +86,41 @@ void Bullet::cycleThroughPhases()
 
       setPosition(pos_x, pos_y);
 
-      //UpdatePos();
       lastUpdate = std::chrono::system_clock::now();
+
+      std::unique_lock<std::mutex> lck(_mtx);
+      for (auto it_e = _enemies.begin(); it_e != _enemies.end();) {
+        
+        int enemy_pos_x, enemy_pos_y; 
+        (*it_e)->getPosition(enemy_pos_x, enemy_pos_y);
+        int enemy_size = (*it_e)->getSize();
+
+        int enemy_hp;
+        (*it_e)->getHp(enemy_hp);
+
+        float distance = distanceBetweenTwoPoints(enemy_pos_x, enemy_pos_y, 
+                                                  _pos_x, _pos_y);
+        float collision_dis_enemy = getSize() + enemy_size;
+
+        if (distance <= collision_dis_enemy * 5) {
+          // Enemy collision with bullet
+          _destroyed = true;
+          if (enemy_hp > 10) {
+            (*it_e)->setHp(enemy_hp - 10);
+          } else {
+            //std::cout << "enemy die" << std::endl;
+            (*it_e)->toggleAlive();
+          }
+        }
+        
+        //std::cout << "step" << step << std::endl;
+        it_e++;
+      }
+      lck.unlock();
+
+      if ( (_pos_y < 0) || (_pos_y > _screen_height) ) {
+        _destroyed = true;
+      }
     }
   }
 }

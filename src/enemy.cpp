@@ -29,7 +29,7 @@ void Enemy::simulate()
 void Enemy::cycleThroughPhases()
 {
   // initalize variables
-  double cycleDuration = 10 * (rand() % 2 + 4); // duration of a single simulation cycle in ms
+  double cycleDuration = 100 * (rand() % 2 + 4); // duration of a single simulation cycle in ms
   std::chrono::time_point<std::chrono::system_clock> lastUpdate;
 
   // init stop watch
