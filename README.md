@@ -4,6 +4,10 @@ Table of contents
 =================
 <!--ts-->
    * [Introduction](#introduction)
+   * [Dependencies for Running Locally](#dependencies-for-running-locally)
+   * [Basic Build Instructions](#basic-build-instructions)
+   * [Object Hierarchy](#object-hierarchy)
+   * [Rubric Points](#rubric-points)
 <!--te-->
 
 ## Introduction
@@ -38,14 +42,6 @@ The project is 2D arcade shooting using C++ SDL.
 
 ## Rubric Points
 Below are the rubric points that are addressed/implemented in this project.
-
-
-
-## CC Attribution-ShareAlike 4.0 International
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
-
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
