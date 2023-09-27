@@ -7,7 +7,7 @@ std::mutex Bullet::_mtx;
 
 Bullet::Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
                std::size_t init_x, std::size_t init_y, std::size_t size, bool mine) 
-  : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed)  {
+  : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed) {
   //std::cout << "Bullet Constructor" << std::endl;
 
   if (mine == true) {

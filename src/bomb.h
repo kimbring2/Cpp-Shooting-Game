@@ -10,27 +10,35 @@
 #include "gameObject.h"
 #include "player.h"
 #include "enemy.h"
-#include "bullet.h"
 
 class Player;
 class Enemy;
-class Bullet;
 
-class Bomb : public Bullet {
+class Bomb : public GameObject {
  public:
+  enum class Direction { kUp, kDown };
+
   Bomb(float speed, std::size_t screen_width, std::size_t screen_height, 
-       std::size_t init_x, std::size_t init_y, std::size_t size, bool mine);
+       std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
+       float timer);
   ~Bomb();
 
   bool getMine() { return _mine; }
   bool getDestroyed() { return _destroyed; }
+  void toggleDestroyed() { _destroyed = !_destroyed; }
 
   void simulate();
 
   void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
   void copyPlayer(const std::shared_ptr<Player>& source);
+  double distanceBetweenTwoPoints(int x, int y, int a, int b);
 
  protected:
+  float _speed;
+  bool _destroyed = false;
+  Direction _direction = Direction::kUp;
+  bool _mine;
+  float _timer;
   std::thread t;
   static std::mutex _mtx;           // mutex shared by all traffic objects for protecting cout 
 

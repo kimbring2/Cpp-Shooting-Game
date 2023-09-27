@@ -45,19 +45,23 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
     ChangeDirection(player, Player::Direction::kRight, Player::Direction::kLeft);
   }
 
-  // Shoot bullet
+  // Shot bullet
   if (keyboard_state_array[SDL_SCANCODE_A]) {
     int pos_x, pos_y; 
     player->getPosition(pos_x, pos_y);
 
-    // Set new bullet information before sending to the game.cpp
-    _bullet_x = pos_x;
-    _bullet_y = pos_y;
-    _bullet_mine = true;
-    _bulletSpawned = true;
+    if (_bullet_timer == 0) {
+      // Set new bullet information before sending to the game.cpp
+      _bullet_x = pos_x;
+      _bullet_y = pos_y;
+      _bullet_mine = true;
+      _bulletSpawned = true;
+
+      _bullet_timer = 10;
+    }
   }
 
-  // Shoot bomb
+  // Shot bomb
   if (keyboard_state_array[SDL_SCANCODE_B]) {
     int pos_x, pos_y; 
     player->getPosition(pos_x, pos_y);
@@ -67,5 +71,9 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
     _bomb_y = pos_y;
     _bomb_mine = true;
     _bombSpawned = true;
+  }
+
+  if (_bullet_timer > 0) {
+    _bullet_timer -= 1;
   }
 }

@@ -82,12 +82,16 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
     // Check the player shot the bomb
     if (controller._bombSpawned == true) {
-      std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
-        controller._bomb_x, controller._bomb_y, 
-         1, controller._bomb_mine);
+      //std::cout << "_bombs.size()" << _bombs.size() << std::endl;
 
-      _bombs.emplace_back(bomb);
-      bomb->simulate(); // Start the thread of bomb
+      if (_bombs.size() == 0) {
+        std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
+          controller._bomb_x, controller._bomb_y, 
+           1, controller._bomb_mine, 50);
+
+        _bombs.emplace_back(bomb);
+        bomb->simulate(); // Start the thread of bomb
+      }
 
       controller._bombSpawned = false; // reset the spawned flag
     }

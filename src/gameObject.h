@@ -24,6 +24,8 @@ class GameObject {
   // getter and setter
   int getID() { return _id; }
   int getSize() { return _size; }
+  void setSize(int size) { _size = size; }
+
   void setPosition(int x, int y);
   void getPosition(int &x, int &y);
   ObjectType getType() { return _type; }

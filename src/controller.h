@@ -15,6 +15,7 @@ class Controller {
 
   int _bullet_x, _bullet_y;
   bool _bullet_mine;
+  int _bullet_timer = 0;
 
   int _bomb_x, _bomb_y;
   bool _bomb_mine;
