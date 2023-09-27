@@ -4,10 +4,10 @@ The project is 2D arcade shooting using C++ SDL.
 Table of contents
 =================
 <!--ts-->
-   * [How to play](#how-to-play)
-   * [Flow chart](#flow-chart)
    * [Dependencies for Running Locally](#dependencies-for-running-locally)
    * [Basic Build Instructions](#basic-build-instructions)
+   * [How to play](#how-to-play)
+   * [Flow chart](#flow-chart)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
       * [Loops, Functions, I/O](#loops-functions-io)
@@ -15,12 +15,6 @@ Table of contents
       * [Memory Management](#memory-management)
       * [Concurrency](#concurrency)
 <!--te-->
-
-## How to play
-
-
-## Flow chart
-
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -45,6 +39,11 @@ Table of contents
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./ShootingGame`.
+
+## How to play
+
+
+## Flow chart
 
 ## Object Hierarchy
 <img src="images/ObjectHierarchy.png" width="700">
