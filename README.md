@@ -5,13 +5,20 @@ Table of contents
 =================
 <!--ts-->
    * [How to play](#how-to-play)
+   * [Flow chart](#flow-chart)
    * [Dependencies for Running Locally](#dependencies-for-running-locally)
    * [Basic Build Instructions](#basic-build-instructions)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
+      * [Object Oriented Programming](#object-oriented-programming)
+      * [Memory Management](#memory-management)
+      * [Concurrency](#concurrency)
 <!--te-->
 
 ## How to play
+
+
+## Flow chart
 
 
 ## Dependencies for Running Locally
@@ -44,8 +51,24 @@ Table of contents
 ## Rubric Points
 Below are the rubric points that are addressed/implemented in this project.
 
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+### Loops, Functions, I/O
+* The project demonstrates an understanding of C++ functions and control structures
+* The project accepts user input and processes the input
 
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+### Object Oriented Programming
+* The project uses Object Oriented Programming techniques.
+* Classes use appropriate access specifiers for class members.
+* Class constructors utilize member initialization lists.
+* Classes abstract implementation details from their interfaces.
+* Classes encapsulate behavior.
+* Classes follow an appropriate inheritance hierarchy.
+* Overloaded functions allow the same function to operate on different parameters.
+* Derived class functions override virtual base class functions.
+
+### Memory management
+* The project uses destructors appropriately.
+* The project uses smart pointers instead of raw pointers.
+
+### Concurrency
+* The project uses multithreading.
+* A mutex or lock is used in the project.
