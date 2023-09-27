@@ -10,7 +10,7 @@ Table of contents
    * [Basic Build Instructions](#basic-build-instructions)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
-      * [Loops, Functions, I/O](#loops,-functions,-i/o)
+      * [Loops, Functions, I/O](#loops-functions-io)
       * [Object Oriented Programming](#object-oriented-programming)
       * [Memory Management](#memory-management)
       * [Concurrency](#concurrency)
@@ -47,7 +47,7 @@ Table of contents
 4. Run it: `./ShootingGame`.
 
 ## Object Hierarchy
-<img src="images/ObjectHierarchy" width="700">
+<img src="images/ObjectHierarchy.png" width="700">
 
 ## Rubric Points
 Below are the rubric points that are addressed/implemented in this project.
