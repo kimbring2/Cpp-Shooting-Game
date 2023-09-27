@@ -10,6 +10,7 @@ Table of contents
    * [Basic Build Instructions](#basic-build-instructions)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
+      * [Loops, Functions, I/O](#loops,-functions,-i/o)
       * [Object Oriented Programming](#object-oriented-programming)
       * [Memory Management](#memory-management)
       * [Concurrency](#concurrency)
