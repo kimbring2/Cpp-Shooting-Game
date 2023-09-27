@@ -1,17 +1,18 @@
 # Cpp-Shooting-Game
+The project is 2D arcade shooting using C++ SDL. 
 
 Table of contents
 =================
 <!--ts-->
-   * [Introduction](#introduction)
+   * [How to play](#how-to-play)
    * [Dependencies for Running Locally](#dependencies-for-running-locally)
    * [Basic Build Instructions](#basic-build-instructions)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
 <!--te-->
 
-## Introduction
-The project is 2D arcade shooting using C++ SDL. 
+## How to play
+
 
 ## Dependencies for Running Locally
 ============
