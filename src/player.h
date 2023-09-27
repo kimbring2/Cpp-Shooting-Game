@@ -14,7 +14,7 @@ class Player : public Mobile, public std::enable_shared_from_this<Player> {
          std::size_t init_x, std::size_t init_y, std::size_t size);
 
  protected:
-
+  
  private:
 };
 
