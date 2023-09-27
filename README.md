@@ -3,7 +3,7 @@
 Table of contents
 =================
 <!--ts-->
-   * [Introduction](#installation)
+   * [Introduction](#introduction)
 <!--te-->
 
 ## Introduction
