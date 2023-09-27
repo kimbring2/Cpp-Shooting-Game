@@ -30,6 +30,7 @@ class Bullet : public GameObject {
 
   void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
   void copyPlayer(const std::shared_ptr<Player>& source);
+  double distanceBetweenTwoPoints(int x, int y, int a, int b);
 
  protected:
   float _speed;

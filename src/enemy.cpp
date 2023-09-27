@@ -18,8 +18,7 @@ Enemy::~Enemy() {
 }
 
 
-void Enemy::simulate()
-{
+void Enemy::simulate() {
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
   t = std::thread(&Enemy::cycleThroughPhases, this);
@@ -27,8 +26,7 @@ void Enemy::simulate()
 
 
 // virtual function which is executed in a thread
-void Enemy::cycleThroughPhases()
-{
+void Enemy::cycleThroughPhases() {
   // initalize variables
   double cycleDuration = 100 * (rand() % 2 + 4); // duration of a single simulation cycle in ms
   std::chrono::time_point<std::chrono::system_clock> lastUpdate;

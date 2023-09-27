@@ -94,7 +94,8 @@ Renderer::~Renderer() {
 
 void Renderer::Render(std::shared_ptr<Player> player, 
                       std::vector<std::shared_ptr<Enemy>> enemies,
-                      std::vector<std::shared_ptr<Bullet>> bullets) {
+                      std::vector<std::shared_ptr<Bullet>> bullets,
+                      std::vector<std::shared_ptr<Bomb>> bombs) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
@@ -145,6 +146,31 @@ void Renderer::Render(std::shared_ptr<Player> player,
     
     DrawCircle(sdl_renderer, 
                static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
+  }
+
+
+  // Render Bomb
+  for (auto bullet : bullets) {
+    int bullet_pos_x, bullet_pos_y; 
+    bullet->getPosition(bullet_pos_x, bullet_pos_y);
+
+    if (bullet->getMine()) {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+    } else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+    }
+    
+    DrawCircle(sdl_renderer, 
+               static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
+  }
+  
+  // Render Bomb
+  for (auto bomb : bombs) {
+    int bomb_pos_x, bomb_pos_y; 
+    bomb->getPosition(bomb_pos_x, bomb_pos_y);
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+    DrawCircle(sdl_renderer, 
+               static_cast<int>(bomb_pos_x), static_cast<int>(bomb_pos_y), 5 * bomb->getSize());
   }
 
   // Draw infomation panel

@@ -68,10 +68,21 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
       // Add bullet to vector
       _bullets.emplace_back(bullet);
-
       bullet->simulate(); // Start the thread of bullet
 
       controller._bulletSpawned = false; // reset the spawned flag
+    }
+
+    // Check the player shot the bomb
+    if (controller._bombSpawned == true) {
+      std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
+        controller._bomb_x, controller._bomb_y, 
+         1, controller._bomb_mine);
+
+      _bombs.emplace_back(bomb);
+      bomb->simulate(); // Start the thread of bomb
+
+      controller._bombSpawned = false; // reset the spawned flag
     }
 
     // Check the enemy shot the bullet
@@ -108,7 +119,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
     // Rendering to screen 
     try {
-      renderer.Render(player, _enemies, _bullets);
+      renderer.Render(player, _enemies, _bullets, _bombs);
     } catch (std::exception& e) {
       // Block of code to handle errors
       std::cerr << "rendering fail: " << e.what() << std::endl;

@@ -1,64 +1,32 @@
-#include "bullet.h"
+#include "bomb.h"
 #include <cmath>
 #include <iostream>
 
 
-std::mutex Bullet::_mtx;
+std::mutex Bomb::_mtx;
 
-Bullet::Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
-               std::size_t init_x, std::size_t init_y, std::size_t size, bool mine) 
-  : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed)  {
-  //std::cout << "Bullet Constructor" << std::endl;
-
-  if (mine == true) {
-    _direction = Direction::kUp;
-  }
-  else {
-    _direction = Direction::kDown;
-  }
-
-  _mine = mine;
+Bomb::Bomb(float speed, std::size_t screen_width, std::size_t screen_height, 
+           std::size_t init_x, std::size_t init_y, std::size_t size, bool mine) 
+  : Bullet(speed, screen_width, screen_height, init_x, init_y, size, mine)  {
+  std::cout << "Bomb Constructor" << std::endl;
 }
 
 
-Bullet::~Bullet() {
-  //std::cout << "Bullet Destructor" << std::endl;
+Bomb::~Bomb() {
+  std::cout << "Bomb Destructor" << std::endl;
   t.join();
 }
 
 
-void Bullet::copyPlayer(const std::shared_ptr<Player>& source) {
-  // Copy the vector of player to this class
-  player = source;
-}
-
-
-void Bullet::copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector) {
-  // Copy the vector of enemy to this class
-  _enemies = sourceVector;
-}
-
-
-void Bullet::simulate() {
-  // launch drive function in a thread
-  //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
-  t = std::thread(&Bullet::cycleThroughPhases, this);
-}
-
-
-double Bullet::distanceBetweenTwoPoints(int x, int y, int a, int b) {
-  return sqrt(pow(x - a, 2) + pow(y - b, 2));
-}
-
-
 // virtual function which is executed in a thread
-void Bullet::cycleThroughPhases() {
+void Bomb::cycleThroughPhases() {
   // initalize variables
   double cycleDuration = 10 * (rand() % 2 + 4); // duration of a single simulation cycle in ms
   std::chrono::time_point<std::chrono::system_clock> lastUpdate;
 
   // init stop watch
   lastUpdate = std::chrono::system_clock::now();
+  //while (true)
   while (!_destroyed) {
     //std::cout << "Bullet, cycleThroughPhases" << std::endl;
 
