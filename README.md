@@ -48,6 +48,7 @@ Table of contents
 | Left  | Move to Leftside  |
 | Right  | Move to Right side  |
 | A  | Use Normal Weapon  |
+| ESC  | Exit Game  |
 
 ## Processing loop
 <img src="images/ProcessingLoop.png" width="700">
