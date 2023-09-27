@@ -32,7 +32,7 @@ Table of contents
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 * SDL2_ttf >= 2.0
   * All installation instructions can be found [here](https://wiki.libsdl.org/SDL2_ttf)
-  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
+  > sudo apt-get install libsdl2-ttf-dev
 
 ## Basic Build Instructions
 1. Clone this repo.
