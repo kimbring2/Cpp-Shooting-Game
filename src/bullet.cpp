@@ -114,6 +114,7 @@ void Bullet::cycleThroughPhases() {
 
       // Collsion detection with enemy
       if (getMine()) {
+        std::unique_lock<std::mutex> lck(_mtx);
         for (auto it_e = _enemies.begin(); it_e != _enemies.end();) {
           int enemy_pos_x, enemy_pos_y; 
           (*it_e)->getPosition(enemy_pos_x, enemy_pos_y);
@@ -137,6 +138,7 @@ void Bullet::cycleThroughPhases() {
           
           it_e++;
         }
+        lck.unlock();
       }
 
       if ( (_pos_y < 0) || (_pos_y > _screen_height) ) {

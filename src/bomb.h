@@ -22,8 +22,16 @@ class Bomb : public Bullet {
        std::size_t init_x, std::size_t init_y, std::size_t size, bool mine);
   ~Bomb();
 
+  bool getMine() { return _mine; }
+  bool getDestroyed() { return _destroyed; }
+
+  void simulate();
+
+  void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
+  void copyPlayer(const std::shared_ptr<Player>& source);
+
  protected:
-  //std::thread t;
+  std::thread t;
   static std::mutex _mtx;           // mutex shared by all traffic objects for protecting cout 
 
  private:

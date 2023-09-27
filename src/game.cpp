@@ -37,6 +37,13 @@ Game::~Game() {
     (*it) = NULL;
     delete it->get();
   }
+
+  // delete all bombs
+  for (auto it = std::begin(_bombs); it != std::end(_bombs); ++it) {
+    (*it)->toggleDestroyed();
+    (*it) = NULL;
+    delete it->get();
+  }
 }
 
 
@@ -107,11 +114,22 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
                     return !enemy->isAlive();
                    }), _enemies.end());
 
+    // Delete the destroyed bomb
+    _bombs.erase(std::remove_if(_bombs.begin(), _bombs.end(), 
+                 [](std::shared_ptr<Bomb> bomb) { 
+                    return bomb->getDestroyed();
+                 }), _bombs.end());
+
     // Update the player, enemies infomation of bullet
     // it will be used for collision detection from thread of bullet 
     for (auto _bullet : _bullets) {
       _bullet->copyPlayer(player);
       _bullet->copyEnemyVector(_enemies);
+    }
+
+    for (auto _bomb : _bombs) {
+      _bomb->copyPlayer(player);
+      _bomb->copyEnemyVector(_enemies);
     }
 
     // Update player information 
