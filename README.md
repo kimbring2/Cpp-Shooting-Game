@@ -15,7 +15,6 @@ Table of contents
 
 
 ## Dependencies for Running Locally
-============
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.1 (Linux, Mac), 3.81 (Windows)
