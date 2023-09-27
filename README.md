@@ -1,4 +1,12 @@
-# Introduction
+# Cpp-Shooting-Game
+
+Table of contents
+=================
+<!--ts-->
+   * [Introduction](#installation)
+<!--te-->
+
+## Introduction
 The project is 2D arcade shooting using C++ SDL. 
 
 ## Dependencies for Running Locally
@@ -26,6 +34,11 @@ The project is 2D arcade shooting using C++ SDL.
 4. Run it: `./ShootingGame`.
 
 ## Object Hierarchy
+<img src="images/ObjectHierarchy" width="700">
+
+## Rubric Points
+Below are the rubric points that are addressed/implemented in this project.
+
 
 
 ## CC Attribution-ShareAlike 4.0 International
