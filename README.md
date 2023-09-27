@@ -7,7 +7,7 @@ Table of contents
    * [Dependencies for Running Locally](#dependencies-for-running-locally)
    * [Basic Build Instructions](#basic-build-instructions)
    * [How to play](#how-to-play)
-   * [Flow chart](#flow-chart)
+   * [Processing loop](#processing-loop)
    * [Object Hierarchy](#object-hierarchy)
    * [Rubric Points](#rubric-points)
       * [Loops, Functions, I/O](#loops-functions-io)
@@ -50,7 +50,7 @@ Table of contents
 | A  | Use Normal Weapon  |
 
 ## Processing loop
-
+<img src="images/ProcessingLoop.png" width="700">
 
 ## Object Hierarchy
 <img src="images/ObjectHierarchy.png" width="700">
