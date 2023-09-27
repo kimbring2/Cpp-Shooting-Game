@@ -41,9 +41,16 @@ Table of contents
 4. Run it: `./ShootingGame`.
 
 ## How to play
+| Key  | Action |
+| ------------- | ------------- |
+| Up  | Move to Upside  |
+| Down  | Move to Downside  |
+| Left  | Move to Leftside  |
+| Right  | Move to Right side  |
+| A  | Use Normal Weapon  |
 
+## Processing loop
 
-## Flow chart
 
 ## Object Hierarchy
 <img src="images/ObjectHierarchy.png" width="700">
