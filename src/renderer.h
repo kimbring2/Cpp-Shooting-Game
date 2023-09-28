@@ -23,6 +23,7 @@ class Renderer {
   void DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius);
   void DrawText(SDL_Renderer * renderer, std::string text, int32_t x, int32_t y, SDL_Color textColor,
                 TTF_Font *font);
+  void DrawProgressBar(SDL_Renderer * renderer, int32_t progress, int32_t x, int32_t y);
 
  private:
   SDL_Window *sdl_window;

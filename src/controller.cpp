@@ -25,11 +25,12 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
 
   const Uint8 *keyboard_state_array = SDL_GetKeyboardState(NULL);
 
-  SDL_PollEvent(&e);
+  //SDL_PollEvent(&e);
+  while (SDL_PollEvent(&e)) {}
 
   // Exit game
   if (keyboard_state_array[SDL_SCANCODE_ESCAPE]) {
-    std::cout << "keyboard_state_array[SDL_SCANCODE_ESCAPE]" << std::endl;
+    //std::cout << "keyboard_state_array[SDL_SCANCODE_ESCAPE]" << std::endl;
     running = false;
   }
 

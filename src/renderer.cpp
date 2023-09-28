@@ -3,7 +3,8 @@
 #include <string>
 
 
-void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius) {
+void Renderer::DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, 
+                          int32_t radius) {
    const int32_t diameter = (radius * 2);
 
    int32_t x = (radius - 1);
@@ -50,6 +51,27 @@ void Renderer::DrawText(SDL_Renderer * renderer, std::string text, int32_t x, in
   SDL_Rect renderQuad = { static_cast<int>(x), static_cast<int>(y), text_width, text_height };
   SDL_RenderCopy(renderer, sdlText, NULL, &renderQuad);
   SDL_DestroyTexture(sdlText);
+}
+
+
+void Renderer::DrawProgressBar(SDL_Renderer *renderer, int32_t progress, int32_t x, int32_t y) {
+  // Progress bar
+  SDL_Rect progressBar;  // Rectangle for the progress bar
+  SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+  progressBar.x = x;           // X position
+  progressBar.y = y;           // Y position
+  progressBar.w = progress * 2;  // Width based on progress (assuming a total of 100 units)
+  progressBar.h = 30;            // Height
+
+  // Draw the filled part of the progress bar
+  SDL_RenderFillRect(renderer, &progressBar);
+
+  // Set a different color for the unfilled part
+  SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);  // Gray for unfilled part
+
+  // Draw the unfilled part of the progress bar
+  SDL_Rect unfilledBar = { progressBar.x + progressBar.w, progressBar.y, (100 - progress) * 2, progressBar.h };
+  SDL_RenderFillRect(renderer, &unfilledBar);
 }
 
 
@@ -190,10 +212,12 @@ void Renderer::Render(std::shared_ptr<Player> player,
   SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 0); // White color
   SDL_RenderDrawLine(sdl_renderer, startPoint.x, startPoint.y, endPoint.x, endPoint.y);
 
-  int player_hp = player->getHp();
-  std::string hp_text = "HP: " + std::to_string(player_hp);
   textColor = { 255, 255, 255, 0 }; // White color
-  DrawText(sdl_renderer, hp_text, 270, screen_height + 50, textColor, font_30);
+  DrawText(sdl_renderer, "HP", 190, screen_height + 50, textColor, font_30);
+  int player_hp = player->getHp();
+  DrawProgressBar(sdl_renderer, player_hp, 240, screen_height + 50);
+  std::string hp_text = std::to_string(player_hp);
+  DrawText(sdl_renderer, hp_text, 450, screen_height + 50, textColor, font_30);
 
   int bomb_count = player->getBombCount();
   std::string bomb_text = "Bomb: " + std::to_string(bomb_count);

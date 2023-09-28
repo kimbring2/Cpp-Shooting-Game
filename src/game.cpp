@@ -9,7 +9,7 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
     : engine(dev()),
       random_w(0, static_cast<int>(screen_width - 1)), 
       random_h(0, static_cast<int>(screen_height - 1)) {   
-  player = std::make_shared<Player>(100, 15, screen_width, screen_height, 300, 590, 5, 3);
+  player = std::make_shared<Player>(100, 10, screen_width, screen_height, 300, 590, 5, 3);
 
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
