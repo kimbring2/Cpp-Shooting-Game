@@ -16,7 +16,8 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
 
-  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 250, 170, 5));
+  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
+  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
 }
 
 
@@ -81,28 +82,28 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
     controller.HandleInput(running, player);
 
     // Check the player shot the bullet
-    if (controller._bulletSpawned == true) {
+    if (controller._bullet_spawned == true) {
       // Make the shared_ptr of generated bullet from player 
       std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(10, 640, 640, 
         controller._bullet_x, controller._bullet_y, 
-        1, controller._bullet_mine);
+        1, controller._bullet_mine, controller._bullet_direction);
 
       // Add bullet to vector
       _bullets.emplace_back(bullet);
       bullet->simulate(); // Start the thread of bullet
 
-      controller._bulletSpawned = false; // reset the spawned flag
+      controller._bullet_spawned = false; // reset the spawned flag
     }
 
     // Check the player shot the bomb
-    if (controller._bombSpawned == true) {
+    if (controller._bomb_spawned == true) {
       //std::cout << "_bombs.size()" << _bombs.size() << std::endl;
 
       if (player->getBombCount() > 0) {
         if (_bombs.size() == 0) {
           std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
             controller._bomb_x, controller._bomb_y, 
-             1, controller._bomb_mine, 40);
+             1, controller._bomb_mine, 40, controller._bomb_direction);
 
           _bombs.emplace_back(bomb);
           bomb->simulate(); // Start the thread of bomb
@@ -112,7 +113,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         }
       }
 
-      controller._bombSpawned = false; // reset the spawned flag
+      controller._bomb_spawned = false; // reset the spawned flag
     }
 
     // Check the enemy shot the bullet
@@ -122,6 +123,15 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         _enemy->_bulletSpawned = false;
         _bullets.emplace_back(_enemy->_bullet);
         (_enemy->_bullet)->simulate();
+      }
+    }
+
+    // Check the fixed enemy shot the bullet
+    for (auto _fixedEnemy : _fixedEnemies) {
+      if (_fixedEnemy->_bulletSpawned == true) {
+        _fixedEnemy->_bulletSpawned = false;
+        _bullets.emplace_back(_fixedEnemy->_bullet);
+        (_fixedEnemy->_bullet)->simulate();
       }
     }
 

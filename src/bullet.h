@@ -18,10 +18,11 @@ class FixedEnemy;
 
 class Bullet : public GameObject {
  public:
-  enum class Direction { kUp, kDown };
+  enum class Direction { kUp, kDown, kLeft, kRight };
 
   Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
-         std::size_t init_x, std::size_t init_y, std::size_t size, bool mine);
+         std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
+         Direction direction);
   ~Bullet();
 
   bool getMine() { return _mine; }

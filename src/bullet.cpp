@@ -6,18 +6,20 @@
 std::mutex Bullet::_mtx;
 
 Bullet::Bullet(float speed, std::size_t screen_width, std::size_t screen_height, 
-               std::size_t init_x, std::size_t init_y, std::size_t size, bool mine) 
-  : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed) {
+               std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
+               Direction direction) 
+  : GameObject(screen_width, screen_height, init_x, init_y, size), _mine(mine), 
+    _speed(speed), _direction(direction) {
   //std::cout << "Bullet Constructor" << std::endl;
 
-  if (mine == true) {
-    _direction = Direction::kUp;
-  }
-  else {
-    _direction = Direction::kDown;
-  }
+  //if (mine == true) {
+  //  _direction = Direction::kUp;
+  //}
+  //else {
+  //  _direction = Direction::kDown;
+  //}
 
-  _mine = mine;
+  //_mine = mine;
 }
 
 
@@ -88,6 +90,14 @@ void Bullet::cycleThroughPhases() {
         case Direction::kDown:
           //std::cout << "Direction::kDown" << std::endl;
           pos_y += _speed;
+          break;
+        case Direction::kLeft:
+          //std::cout << "Direction::kLeft" << std::endl;
+          pos_x -= _speed;
+          break;
+        case Direction::kRight:
+          //std::cout << "Direction::kRight" << std::endl;
+          pos_x += _speed;
           break;
       }
 

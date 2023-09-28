@@ -5,6 +5,7 @@
 #include "player.h"
 #include "enemy.h"
 #include "bullet.h"
+#include "bomb.h"
 
 
 void Controller::ChangeDirection(std::shared_ptr<Player> player, Player::Direction input,
@@ -28,6 +29,7 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
 
   // Exit game
   if (keyboard_state_array[SDL_SCANCODE_ESCAPE]) {
+    std::cout << "keyboard_state_array[SDL_SCANCODE_ESCAPE]" << std::endl;
     running = false;
   }
 
@@ -56,9 +58,9 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
       _bullet_x = pos_x;
       _bullet_y = pos_y;
       _bullet_mine = true;
-      _bulletSpawned = true;
-
+      _bullet_spawned = true;
       _bullet_timer = 10;
+      _bullet_direction = Bullet::Direction::kUp;
     }
   }
 
@@ -72,7 +74,8 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
     _bomb_x = pos_x;
     _bomb_y = pos_y;
     _bomb_mine = true;
-    _bombSpawned = true;
+    _bomb_spawned = true;
+    _bomb_direction = Bomb::Direction::kUp;
   }
 
   // Decrease the bullet delay counter

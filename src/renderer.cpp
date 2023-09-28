@@ -166,14 +166,17 @@ void Renderer::Render(std::shared_ptr<Player> player,
     int fixed_enemy_hp = fixedEnemy->getHp();
     std::string fixed_hp_text = std::to_string(fixed_enemy_hp);
     textColor = { 255, 0, 0, 0 };
-    DrawText(sdl_renderer, "fixed_enemy", fixed_enemy_pos_x, fixed_enemy_pos_y, textColor, font_18);
-    DrawText(sdl_renderer, fixed_hp_text, fixed_enemy_pos_x, fixed_enemy_pos_y - 25, textColor, font_18);
+    DrawText(sdl_renderer, "fixed_enemy", fixed_enemy_pos_x, fixed_enemy_pos_y - 40, textColor, font_18);
+    DrawText(sdl_renderer, fixed_hp_text, fixed_enemy_pos_x, fixed_enemy_pos_y + 25, textColor, font_18);
+
+    fixed_enemy_pos_x -= 5 * fixedEnemy->getSize();
+    fixed_enemy_pos_y -= 5 * fixedEnemy->getSize();
 
     if (fixedEnemy->isAlive()) {
       SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
-      DrawCircle(sdl_renderer, 
-                 static_cast<int>(fixed_enemy_pos_x), 
-                 static_cast<int>(fixed_enemy_pos_y), 5 * fixedEnemy->getSize());
+      SDL_Rect rect = { static_cast<int>(fixed_enemy_pos_x), static_cast<int>(fixed_enemy_pos_y), 
+                        10 * fixedEnemy->getSize(), 10 * fixedEnemy->getSize() };
+      SDL_RenderFillRect(sdl_renderer, &rect);
     } else {
       SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
     }

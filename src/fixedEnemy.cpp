@@ -47,28 +47,6 @@ void FixedEnemy::cycleThroughPhases() {
       int pos_x, pos_y; 
       getPosition(pos_x, pos_y);
 
-      /*
-      int direction_index = rand() % 4;
-      switch (direction_index) {
-        case 0:
-          //std::cout << "Direction::kUp" << std::endl;
-          pos_y -= _speed;
-          break;
-        case 1:
-          //std::cout << "Direction::kDown" << std::endl;
-          pos_y += _speed;
-          break;
-        case 3:
-          //std::cout << "Direction::kLeft" << std::endl;
-          pos_x -= _speed;
-          break;
-        case 4:
-          //std::cout << "Direction::kRight" << std::endl;
-          pos_x += _speed;
-          break;
-      }
-      */
-
       pos_y += _speed;
 
       setPosition(pos_x, pos_y);
@@ -78,7 +56,13 @@ void FixedEnemy::cycleThroughPhases() {
       // Fire bullet randomly
       int bullet_fire = rand() % 4;
       if (bullet_fire == 0) {
-        _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false);
+        int left_right = rand() % 2;
+        if (left_right == 0) {
+          _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false, Bullet::Direction::kRight);
+        } else {
+          _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false, Bullet::Direction::kLeft);
+        }
+
         _bulletSpawned = true;
       }
 

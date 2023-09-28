@@ -22,7 +22,7 @@ class Bomb : public GameObject {
 
   Bomb(float speed, std::size_t screen_width, std::size_t screen_height, 
        std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
-       float timer);
+       float timer, Direction direction);
   ~Bomb();
 
   bool getMine() { return _mine; }

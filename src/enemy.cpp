@@ -74,7 +74,7 @@ void Enemy::cycleThroughPhases() {
       // Fire bullet randomly
       int bullet_fire = rand() % 4;
       if (bullet_fire == 0) {
-        _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false);
+        _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false, Bullet::Direction::kDown);
         _bulletSpawned = true;
       }
     }

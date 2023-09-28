@@ -7,7 +7,7 @@ std::mutex Bomb::_mtx;
 
 Bomb::Bomb(float speed, std::size_t screen_width, std::size_t screen_height, 
            std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
-           float timer) 
+           float timer, Direction direction) 
   : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed), _timer(timer) {
   //std::cout << "Bomb Constructor" << std::endl;
 
