@@ -8,13 +8,13 @@
 Game::Game(std::size_t screen_width, std::size_t screen_height)
     : engine(dev()),
       random_w(0, static_cast<int>(screen_width - 1)), 
-      random_h(0, static_cast<int>(screen_height - 1)) {
-  //std::cout << "check 1" << std::endl;    
-  player = std::make_shared<Player>(100, 15, screen_width, screen_height, 300, 590, 5);
+      random_h(0, static_cast<int>(screen_height - 1)) {   
+  player = std::make_shared<Player>(100, 15, screen_width, screen_height, 300, 590, 5, 3);
 
   _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
 }
 
 
@@ -84,13 +84,18 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
     if (controller._bombSpawned == true) {
       //std::cout << "_bombs.size()" << _bombs.size() << std::endl;
 
-      if (_bombs.size() == 0) {
-        std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
-          controller._bomb_x, controller._bomb_y, 
-           1, controller._bomb_mine, 50);
+      if (player->getBombCount() > 0) {
+        if (_bombs.size() == 0) {
+          std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
+            controller._bomb_x, controller._bomb_y, 
+             1, controller._bomb_mine, 50);
 
-        _bombs.emplace_back(bomb);
-        bomb->simulate(); // Start the thread of bomb
+          _bombs.emplace_back(bomb);
+          bomb->simulate(); // Start the thread of bomb
+
+          // Decrease the bomb number
+          player->setBombCount(player->getBombCount() - 1);
+        }
       }
 
       controller._bombSpawned = false; // reset the spawned flag

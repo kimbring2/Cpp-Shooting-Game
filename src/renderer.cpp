@@ -170,7 +170,7 @@ void Renderer::Render(std::shared_ptr<Player> player,
     bomb->getPosition(bomb_pos_x, bomb_pos_y);
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
     DrawCircle(sdl_renderer, 
-               static_cast<int>(bomb_pos_x), static_cast<int>(bomb_pos_y), 5 * bomb->getSize());
+               static_cast<int>(bomb_pos_x), static_cast<int>(bomb_pos_y), 10 * bomb->getSize());
   }
 
   // Draw infomation panel
@@ -184,7 +184,12 @@ void Renderer::Render(std::shared_ptr<Player> player,
   int player_hp = player->getHp();
   std::string hp_text = "HP: " + std::to_string(player_hp);
   textColor = { 255, 255, 255, 0 }; // White color
-  DrawText(sdl_renderer, hp_text, 290, screen_height + 50, textColor, font_30);
+  DrawText(sdl_renderer, hp_text, 270, screen_height + 50, textColor, font_30);
+
+  int bomb_count = player->getBombCount();
+  std::string bomb_text = "Bomb: " + std::to_string(bomb_count);
+  textColor = { 255, 255, 255, 0 }; // White color
+  DrawText(sdl_renderer, bomb_text, 0, screen_height + 50, textColor, font_30);
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

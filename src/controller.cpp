@@ -50,6 +50,7 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
     int pos_x, pos_y; 
     player->getPosition(pos_x, pos_y);
 
+    // Bullet shoting delay
     if (_bullet_timer == 0) {
       // Set new bullet information before sending to the game.cpp
       _bullet_x = pos_x;
@@ -63,16 +64,18 @@ void Controller::HandleInput(bool &running, std::shared_ptr<Player> player) {
 
   // Shot bomb
   if (keyboard_state_array[SDL_SCANCODE_B]) {
+    // Player can shot the bomb when count is not zero
     int pos_x, pos_y; 
     player->getPosition(pos_x, pos_y);
 
-    // Set new bullet information before sending to the game.cpp
+    // Set new bomb information before sending to the game.cpp
     _bomb_x = pos_x;
     _bomb_y = pos_y;
     _bomb_mine = true;
     _bombSpawned = true;
   }
 
+  // Decrease the bullet delay counter
   if (_bullet_timer > 0) {
     _bullet_timer -= 1;
   }

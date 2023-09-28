@@ -75,7 +75,7 @@ void Bomb::cycleThroughPhases() {
 
       lastUpdate = std::chrono::system_clock::now();
 
-      if (_timer > 25) {
+      if (_timer > 15) {
         int pos_x, pos_y; 
         getPosition(pos_x, pos_y);
 
@@ -91,12 +91,12 @@ void Bomb::cycleThroughPhases() {
         }
 
         setPosition(pos_x, pos_y);
-      } else if (_timer == 25) {
-        std::cout << "_timer" << _timer << std::endl;
-        if (_timer == 25) {
+      } else if (_timer == 15) {
+        //std::cout << "_timer" << _timer << std::endl;
+        if (_timer == 15) {
           setSize(20);
         }
-      } else if (_timer < 25) {
+      } else if (_timer < 15) {
         // Collsion detection with enemy
         if (getMine()) {
           std::unique_lock<std::mutex> lck(_mtx);
