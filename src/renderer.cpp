@@ -95,7 +95,8 @@ Renderer::~Renderer() {
 void Renderer::Render(std::shared_ptr<Player> player, 
                       std::vector<std::shared_ptr<Enemy>> enemies,
                       std::vector<std::shared_ptr<Bullet>> bullets,
-                      std::vector<std::shared_ptr<Bomb>> bombs) {
+                      std::vector<std::shared_ptr<Bomb>> bombs,
+                      std::vector<std::shared_ptr<FixedEnemy>> fixedEnemies) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
@@ -148,22 +149,6 @@ void Renderer::Render(std::shared_ptr<Player> player,
                static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
   }
 
-
-  // Render Bomb
-  for (auto bullet : bullets) {
-    int bullet_pos_x, bullet_pos_y; 
-    bullet->getPosition(bullet_pos_x, bullet_pos_y);
-
-    if (bullet->getMine()) {
-      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-    } else {
-      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
-    }
-    
-    DrawCircle(sdl_renderer, 
-               static_cast<int>(bullet_pos_x), static_cast<int>(bullet_pos_y), 5 * bullet->getSize());
-  }
-  
   // Render Bomb
   for (auto bomb : bombs) {
     int bomb_pos_x, bomb_pos_y; 
@@ -171,6 +156,27 @@ void Renderer::Render(std::shared_ptr<Player> player,
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
     DrawCircle(sdl_renderer, 
                static_cast<int>(bomb_pos_x), static_cast<int>(bomb_pos_y), 10 * bomb->getSize());
+  }
+
+  // Render Fixed Enemies
+  for (auto fixedEnemy : fixedEnemies) {
+    int fixed_enemy_pos_x, fixed_enemy_pos_y; 
+    fixedEnemy->getPosition(fixed_enemy_pos_x, fixed_enemy_pos_y);
+
+    int fixed_enemy_hp = fixedEnemy->getHp();
+    std::string fixed_hp_text = std::to_string(fixed_enemy_hp);
+    textColor = { 255, 0, 0, 0 };
+    DrawText(sdl_renderer, "fixed_enemy", fixed_enemy_pos_x, fixed_enemy_pos_y, textColor, font_18);
+    DrawText(sdl_renderer, fixed_hp_text, fixed_enemy_pos_x, fixed_enemy_pos_y - 25, textColor, font_18);
+
+    if (fixedEnemy->isAlive()) {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+      DrawCircle(sdl_renderer, 
+                 static_cast<int>(fixed_enemy_pos_x), 
+                 static_cast<int>(fixed_enemy_pos_y), 5 * fixedEnemy->getSize());
+    } else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    }
   }
 
   // Draw infomation panel

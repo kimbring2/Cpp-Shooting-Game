@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ShootingGame.dir/src/controller.cpp.o.d"
   "CMakeFiles/ShootingGame.dir/src/enemy.cpp.o"
   "CMakeFiles/ShootingGame.dir/src/enemy.cpp.o.d"
+  "CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.o"
+  "CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.o.d"
   "CMakeFiles/ShootingGame.dir/src/game.cpp.o"
   "CMakeFiles/ShootingGame.dir/src/game.cpp.o.d"
   "CMakeFiles/ShootingGame.dir/src/gameObject.cpp.o"

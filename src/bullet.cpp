@@ -39,6 +39,12 @@ void Bullet::copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVe
 }
 
 
+void Bullet::copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector) {
+  // Copy the vector of enemy to this class
+  _fixedEnemies = sourceVector;
+}
+
+
 void Bullet::simulate() {
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
@@ -137,6 +143,36 @@ void Bullet::cycleThroughPhases() {
           }
           
           it_e++;
+        }
+        lck.unlock();
+      }
+
+      // Collsion detection with fixed enemy
+      if (getMine()) {
+        std::unique_lock<std::mutex> lck(_mtx);
+        for (auto it_fe = _fixedEnemies.begin(); it_fe != _fixedEnemies.end();) {
+          int fixed_enemy_pos_x, fixed_enemy_pos_y; 
+          (*it_fe)->getPosition(fixed_enemy_pos_x, fixed_enemy_pos_y);
+          int fixed_enemy_size = (*it_fe)->getSize();
+          int fixed_enemy_hp = (*it_fe)->getHp();
+
+          float distance_fixed_enemy = distanceBetweenTwoPoints(fixed_enemy_pos_x, 
+                                                                fixed_enemy_pos_y, 
+                                                                _pos_x, _pos_y);
+          float collision_dis_fixed_enemy = getSize() + fixed_enemy_size;
+
+          if (distance_fixed_enemy <= collision_dis_fixed_enemy * 5) {
+            // Enemy collision with bullet
+            _destroyed = true;
+            if (fixed_enemy_hp > 10) {
+              (*it_fe)->setHp(fixed_enemy_hp - 10);
+            } else {
+              //std::cout << "enemy die" << std::endl;
+              (*it_fe)->toggleAlive();
+            }
+          }
+          
+          it_fe++;
         }
         lck.unlock();
       }

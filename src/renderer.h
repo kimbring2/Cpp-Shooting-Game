@@ -8,6 +8,7 @@
 #include "enemy.h"
 #include "bullet.h"
 #include "bomb.h"
+#include "fixedEnemy.h"
 
 class Renderer {
  public:
@@ -15,7 +16,8 @@ class Renderer {
   ~Renderer();
 
   void Render(std::shared_ptr<Player>, std::vector<std::shared_ptr<Enemy>>, 
-              std::vector<std::shared_ptr<Bullet>>, std::vector<std::shared_ptr<Bomb>>);
+              std::vector<std::shared_ptr<Bullet>>, std::vector<std::shared_ptr<Bomb>>,
+              std::vector<std::shared_ptr<FixedEnemy>>);
   void UpdateWindowTitle(int score, int fps);
 
   void DrawCircle(SDL_Renderer * renderer, int32_t centreX, int32_t centreY, int32_t radius);

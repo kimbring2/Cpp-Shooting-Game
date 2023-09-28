@@ -10,9 +10,11 @@
 #include "gameObject.h"
 #include "player.h"
 #include "enemy.h"
+#include "fixedEnemy.h"
 
 class Player;
 class Enemy;
+class FixedEnemy;
 
 class Bullet : public GameObject {
  public:
@@ -29,6 +31,7 @@ class Bullet : public GameObject {
   void simulate();
 
   void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
+  void copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector);
   void copyPlayer(const std::shared_ptr<Player>& source);
   double distanceBetweenTwoPoints(int x, int y, int a, int b);
 
@@ -44,6 +47,7 @@ class Bullet : public GameObject {
   void cycleThroughPhases();
   std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Enemy>> _enemies;
+  std::vector<std::shared_ptr<FixedEnemy>> _fixedEnemies;
 };
 
 #endif

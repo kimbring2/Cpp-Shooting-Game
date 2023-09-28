@@ -1,5 +1,5 @@
-CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.cpp \
+CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.o: \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.cpp \
  /usr/include/stdc-predef.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_algobase.h \
@@ -268,7 +268,7 @@ CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
  /usr/include/c++/9/thread /usr/include/c++/9/chrono \
  /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
  /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/memory \
@@ -293,4 +293,4 @@ CMakeFiles/ShootingGame.dir/src/enemy.cpp.o: \
  /usr/include/c++/9/bits/unique_lock.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h

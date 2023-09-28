@@ -292,4 +292,5 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h

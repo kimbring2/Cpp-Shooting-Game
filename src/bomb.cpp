@@ -40,6 +40,12 @@ void Bomb::copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVect
 }
 
 
+void Bomb::copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector) {
+  // Copy the vector of enemy to this class
+  _fixedEnemies = sourceVector;
+}
+
+
 void Bomb::simulate() {
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
@@ -110,13 +116,38 @@ void Bomb::cycleThroughPhases() {
                                                             _pos_x, _pos_y);
             float collision_dis_enemy = getSize() + enemy_size;
 
-            if (distance_enemy <= collision_dis_enemy * 5) {
+            if (distance_enemy <= collision_dis_enemy * 10) {
               // Enemy collision with Bomb
               _destroyed = true;
               (*it_e)->toggleAlive();
             }
             
             it_e++;
+          }
+          lck.unlock();
+        }
+
+        // Collsion detection with fixed enemy
+        if (getMine()) {
+          std::unique_lock<std::mutex> lck(_mtx);
+          for (auto it_fe = _fixedEnemies.begin(); it_fe != _fixedEnemies.end();) {
+            int fixed_enemy_pos_x, fixed_enemy_pos_y; 
+            (*it_fe)->getPosition(fixed_enemy_pos_x, fixed_enemy_pos_y);
+            int fixed_enemy_size = (*it_fe)->getSize();
+            int fixed_enemy_hp = (*it_fe)->getHp();
+
+            float distance_fixed_enemy = distanceBetweenTwoPoints(fixed_enemy_pos_x, 
+                                                                  fixed_enemy_pos_y, 
+                                                                  _pos_x, _pos_y);
+            float collision_dis_fixed_enemy = getSize() + fixed_enemy_size;
+
+            if (distance_fixed_enemy <= collision_dis_fixed_enemy * 10) {
+              // Fixed enemy collision with Bomb
+              _destroyed = true;
+              (*it_fe)->toggleAlive();
+            }
+            
+            it_fe++;
           }
           lck.unlock();
         }

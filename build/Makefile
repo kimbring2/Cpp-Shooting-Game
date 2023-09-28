@@ -225,6 +225,30 @@ src/enemy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/enemy.cpp.s
 .PHONY : src/enemy.cpp.s
 
+src/fixedEnemy.o: src/fixedEnemy.cpp.o
+.PHONY : src/fixedEnemy.o
+
+# target to build an object file
+src/fixedEnemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.o
+.PHONY : src/fixedEnemy.cpp.o
+
+src/fixedEnemy.i: src/fixedEnemy.cpp.i
+.PHONY : src/fixedEnemy.i
+
+# target to preprocess a source file
+src/fixedEnemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.i
+.PHONY : src/fixedEnemy.cpp.i
+
+src/fixedEnemy.s: src/fixedEnemy.cpp.s
+.PHONY : src/fixedEnemy.s
+
+# target to generate assembly for a file
+src/fixedEnemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/fixedEnemy.cpp.s
+.PHONY : src/fixedEnemy.cpp.s
+
 src/game.o: src/game.cpp.o
 .PHONY : src/game.o
 
@@ -390,6 +414,9 @@ help:
 	@echo "... src/enemy.o"
 	@echo "... src/enemy.i"
 	@echo "... src/enemy.s"
+	@echo "... src/fixedEnemy.o"
+	@echo "... src/fixedEnemy.i"
+	@echo "... src/fixedEnemy.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
