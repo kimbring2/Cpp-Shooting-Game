@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "boss.h"
 #include <cmath>
 #include <iostream>
 
@@ -11,15 +12,6 @@ Bullet::Bullet(float speed, std::size_t screen_width, std::size_t screen_height,
   : GameObject(screen_width, screen_height, init_x, init_y, size), _mine(mine), 
     _speed(speed), _direction(direction) {
   //std::cout << "Bullet Constructor" << std::endl;
-
-  //if (mine == true) {
-  //  _direction = Direction::kUp;
-  //}
-  //else {
-  //  _direction = Direction::kDown;
-  //}
-
-  //_mine = mine;
 }
 
 
@@ -44,6 +36,12 @@ void Bullet::copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVe
 void Bullet::copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector) {
   // Copy the vector of enemy to this class
   _fixedEnemies = sourceVector;
+}
+
+
+void Bullet::copyBossVector(const std::vector<std::shared_ptr<Boss>>& sourceVector) {
+  //Copy the vector of enemy to this class
+  _bosses = sourceVector;
 }
 
 
@@ -183,6 +181,36 @@ void Bullet::cycleThroughPhases() {
           }
           
           it_fe++;
+        }
+        lck.unlock();
+      }
+
+      // Collsion detection with fixed enemy
+      if (getMine()) {
+        std::unique_lock<std::mutex> lck(_mtx);
+        for (auto it_b = _bosses.begin(); it_b != _bosses.end();) {
+          int boss_pos_x, boss_pos_y; 
+          (*it_b)->getPosition(boss_pos_x, boss_pos_y);
+          int boss_size = (*it_b)->getSize();
+          int boss_hp = (*it_b)->getHp();
+
+          float distance_boss = distanceBetweenTwoPoints(boss_pos_x, 
+                                                         boss_pos_y, 
+                                                         _pos_x, _pos_y);
+          float collision_dis_boss = getSize() + boss_size;
+
+          if (distance_boss <= collision_dis_boss * 5) {
+            // Boss collision with bullet
+            _destroyed = true;
+            if (boss_hp > 10) {
+              (*it_b)->setHp(boss_hp - 10);
+            } else {
+              //std::cout << "enemy die" << std::endl;
+              (*it_b)->toggleAlive();
+            }
+          }
+          
+          it_b++;
         }
         lck.unlock();
       }

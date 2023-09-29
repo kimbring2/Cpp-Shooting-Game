@@ -46,6 +46,12 @@ void Bomb::copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& 
 }
 
 
+void Bomb::copyBossVector(const std::vector<std::shared_ptr<Boss>>& sourceVector) {
+  //Copy the vector of enemy to this class
+  _bosses = sourceVector;
+}
+
+
 void Bomb::simulate() {
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 

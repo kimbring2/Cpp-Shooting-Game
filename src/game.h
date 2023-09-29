@@ -13,6 +13,7 @@
 #include "bullet.h"
 #include "bomb.h"
 #include "fixedEnemy.h"
+#include "boss.h"
 
 
 class Game {
@@ -31,6 +32,7 @@ class Game {
   std::vector<std::shared_ptr<Bullet>> _bullets;
   std::vector<std::shared_ptr<Bomb>> _bombs;
   std::vector<std::shared_ptr<FixedEnemy>> _fixedEnemies;
+  std::vector<std::shared_ptr<Boss>> _bosses;
 
   std::random_device dev;
   std::mt19937 engine;

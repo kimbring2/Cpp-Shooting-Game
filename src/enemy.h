@@ -20,7 +20,7 @@ class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
         std::size_t init_x, std::size_t init_y, std::size_t size);
   ~Enemy();
 
-  void simulate();
+  virtual void simulate();
  
   // miscellaneous
   std::shared_ptr<Enemy> get_shared_this() { return shared_from_this(); }
@@ -34,7 +34,7 @@ class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
 
  private:
   // typical behaviour methods
-  void cycleThroughPhases();
+  virtual void cycleThroughPhases();
 };
 
 #endif

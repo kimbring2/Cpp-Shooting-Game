@@ -153,6 +153,30 @@ src/bomb.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/bomb.cpp.s
 .PHONY : src/bomb.cpp.s
 
+src/boss.o: src/boss.cpp.o
+.PHONY : src/boss.o
+
+# target to build an object file
+src/boss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/boss.cpp.o
+.PHONY : src/boss.cpp.o
+
+src/boss.i: src/boss.cpp.i
+.PHONY : src/boss.i
+
+# target to preprocess a source file
+src/boss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/boss.cpp.i
+.PHONY : src/boss.cpp.i
+
+src/boss.s: src/boss.cpp.s
+.PHONY : src/boss.s
+
+# target to generate assembly for a file
+src/boss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShootingGame.dir/build.make CMakeFiles/ShootingGame.dir/src/boss.cpp.s
+.PHONY : src/boss.cpp.s
+
 src/bullet.o: src/bullet.cpp.o
 .PHONY : src/bullet.o
 
@@ -405,6 +429,9 @@ help:
 	@echo "... src/bomb.o"
 	@echo "... src/bomb.i"
 	@echo "... src/bomb.s"
+	@echo "... src/boss.o"
+	@echo "... src/boss.i"
+	@echo "... src/boss.s"
 	@echo "... src/bullet.o"
 	@echo "... src/bullet.i"
 	@echo "... src/bullet.s"

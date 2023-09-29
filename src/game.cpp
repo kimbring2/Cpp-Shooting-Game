@@ -18,6 +18,8 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
 
   _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
   _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
+
+  _bosses.emplace_back(std::make_shared<Boss>(100, 10, screen_width, screen_height, 500, 350, 20));
 }
 
 
@@ -54,6 +56,13 @@ Game::~Game() {
     (*it) = NULL;
     delete it->get();
   }
+
+  // delete all fixed bosses
+  for (auto it = std::begin(_bosses); it != std::end(_bosses); ++it) {
+    (*it)->toggleAlive();
+    (*it) = NULL;
+    delete it->get();
+  }
 }
 
 
@@ -65,14 +74,19 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
   int frame_count = 0;
   bool running = true;
 
-  // // Start the thread of enemy
+  // Start the thread of enemy
   for (auto enemy : _enemies) {
     enemy->simulate();
   }
 
-  // // Start the thread of fixed enemy
+  // Start the thread of fixed enemy
   for (auto fixedEnemy : _fixedEnemies) {
     fixedEnemy->simulate();
+  }
+
+  // Start the thread of boss
+  for (auto boss : _bosses) {
+    boss->simulate();
   }
 
   while (running) {
@@ -159,18 +173,26 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
                     return !fixedEnemy->isAlive();
                    }), _fixedEnemies.end());
 
+    // Delete the destroyed boss
+    _bosses.erase(std::remove_if(_bosses.begin(), _bosses.end(), 
+                   [](std::shared_ptr<Boss> boss) { 
+                    return !boss->isAlive();
+                   }), _bosses.end());
+
     // Update the player, enemies infomation of bullet
     // it will be used for collision detection from thread of bullet 
     for (auto _bullet : _bullets) {
       _bullet->copyPlayer(player);
       _bullet->copyEnemyVector(_enemies);
       _bullet->copyFixedEnemyVector(_fixedEnemies);
+      _bullet->copyBossVector(_bosses);
     }
 
     for (auto _bomb : _bombs) {
       _bomb->copyPlayer(player);
       _bomb->copyEnemyVector(_enemies);
       _bomb->copyFixedEnemyVector(_fixedEnemies);
+      _bomb->copyBossVector(_bosses);
     }
 
     // Update player information 
@@ -178,7 +200,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
 
     // Rendering to screen 
     try {
-      renderer.Render(player, _enemies, _bullets, _bombs, _fixedEnemies);
+      renderer.Render(player, _enemies, _bullets, _bombs, _fixedEnemies, _bosses);
     } catch (std::exception& e) {
       // Block of code to handle errors
       std::cerr << "rendering fail: " << e.what() << std::endl;

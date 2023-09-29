@@ -118,7 +118,8 @@ void Renderer::Render(std::shared_ptr<Player> player,
                       std::vector<std::shared_ptr<Enemy>> enemies,
                       std::vector<std::shared_ptr<Bullet>> bullets,
                       std::vector<std::shared_ptr<Bomb>> bombs,
-                      std::vector<std::shared_ptr<FixedEnemy>> fixedEnemies) {
+                      std::vector<std::shared_ptr<FixedEnemy>> fixedEnemies,
+                      std::vector<std::shared_ptr<Boss>> bosses) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
@@ -199,6 +200,26 @@ void Renderer::Render(std::shared_ptr<Player> player,
       SDL_Rect rect = { static_cast<int>(fixed_enemy_pos_x), static_cast<int>(fixed_enemy_pos_y), 
                         10 * fixedEnemy->getSize(), 10 * fixedEnemy->getSize() };
       SDL_RenderFillRect(sdl_renderer, &rect);
+    } else {
+      SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    }
+  }
+
+  // Render Bosses
+  for (auto boss : bosses) {
+    int boss_pos_x, boss_pos_y; 
+    boss->getPosition(boss_pos_x, boss_pos_y);
+
+    int boss_hp = boss->getHp();
+    std::string hp_text = std::to_string(boss_hp);
+    textColor = { 255, 0, 0, 0 };
+    DrawText(sdl_renderer, "boss", boss_pos_x, boss_pos_y, textColor, font_18);
+    DrawText(sdl_renderer, hp_text, boss_pos_x, boss_pos_y - 25, textColor, font_18);
+
+    if (boss->isAlive()) {
+      SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0xCC, 0x7A);
+      DrawCircle(sdl_renderer, 
+                 static_cast<int>(boss_pos_x), static_cast<int>(boss_pos_y), 5 * boss->getSize());
     } else {
       SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
     }

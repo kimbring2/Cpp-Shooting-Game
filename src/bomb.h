@@ -15,6 +15,7 @@
 class Player;
 class Enemy;
 class FixedEnemy;
+class Boss;
 
 class Bomb : public GameObject {
  public:
@@ -34,6 +35,7 @@ class Bomb : public GameObject {
   void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
   void copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector);
   void copyPlayer(const std::shared_ptr<Player>& source);
+  void copyBossVector(const std::vector<std::shared_ptr<Boss>>& sourceVector);
   double distanceBetweenTwoPoints(int x, int y, int a, int b);
 
  protected:
@@ -50,6 +52,7 @@ class Bomb : public GameObject {
   std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Enemy>> _enemies;
   std::vector<std::shared_ptr<FixedEnemy>> _fixedEnemies;
+  std::vector<std::shared_ptr<Boss>> _bosses;
 };
 
 #endif
