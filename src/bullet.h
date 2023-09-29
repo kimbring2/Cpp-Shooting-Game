@@ -31,7 +31,7 @@ class Bullet : public GameObject {
   bool getDestroyed() { return _destroyed; }
   void toggleDestroyed() { _destroyed = !_destroyed; }
 
-  void simulate();
+  virtual void simulate();
 
   void copyEnemyVector(const std::vector<std::shared_ptr<Enemy>>& sourceVector);
   void copyFixedEnemyVector(const std::vector<std::shared_ptr<FixedEnemy>>& sourceVector);
@@ -47,12 +47,13 @@ class Bullet : public GameObject {
   std::thread t;
   static std::mutex _mtx;           // mutex shared by all traffic objects for protecting cout 
 
- private:
-  void cycleThroughPhases();
   std::shared_ptr<Player> player;
   std::vector<std::shared_ptr<Enemy>> _enemies;
   std::vector<std::shared_ptr<FixedEnemy>> _fixedEnemies;
   std::vector<std::shared_ptr<Boss>> _bosses;
+
+ private:
+  virtual void cycleThroughPhases();
 };
 
 #endif

@@ -1,33 +1,26 @@
 #include "bomb.h"
+#include "bullet.h"
 #include <cmath>
 #include <iostream>
 
 
-std::mutex Bomb::_mtx;
+//std::mutex Bomb::_mtx;
 
 Bomb::Bomb(float speed, std::size_t screen_width, std::size_t screen_height, 
            std::size_t init_x, std::size_t init_y, std::size_t size, bool mine,
            float timer, Direction direction) 
-  : GameObject(screen_width, screen_height, init_x, init_y, size), _speed(speed), _timer(timer) {
-  //std::cout << "Bomb Constructor" << std::endl;
-
-  if (mine == true) {
-    _direction = Direction::kUp;
-  }
-  else {
-    _direction = Direction::kDown;
-  }
-
-  _mine = mine;
+  : Bullet(speed, screen_width, screen_height, init_x, init_y, size, mine, direction), _timer(timer) {
+  std::cout << "Bomb Constructor" << std::endl;
 }
 
 
-Bomb::~Bomb() {
-  //std::cout << "Bomb Destructor" << std::endl;
-  t.join();
-}
+//Bomb::~Bomb() {
+//  std::cout << "Bomb Destructor" << std::endl;
+  //t.join();
+//}
 
 
+/*
 void Bomb::copyPlayer(const std::shared_ptr<Player>& source) {
   // Copy the vector of player to this class
   player = source;
@@ -52,15 +45,16 @@ void Bomb::copyBossVector(const std::vector<std::shared_ptr<Boss>>& sourceVector
 }
 
 
+double Bomb::distanceBetweenTwoPoints(int x, int y, int a, int b) {
+  return sqrt(pow(x - a, 2) + pow(y - b, 2));
+}
+*/
+
+
 void Bomb::simulate() {
   // launch drive function in a thread
   //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
   t = std::thread(&Bomb::cycleThroughPhases, this);
-}
-
-
-double Bomb::distanceBetweenTwoPoints(int x, int y, int a, int b) {
-  return sqrt(pow(x - a, 2) + pow(y - b, 2));
 }
 
 
@@ -83,7 +77,7 @@ void Bomb::cycleThroughPhases() {
         lastUpdate).count();
 
     if (timeSinceLastUpdate >= cycleDuration) {
-      //std::cout << "Bomb, cycleThroughPhases" << std::endl;
+      std::cout << "Bomb, cycleThroughPhases" << std::endl;
 
       lastUpdate = std::chrono::system_clock::now();
 

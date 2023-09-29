@@ -7,34 +7,34 @@
 #include <mutex>
 
 #include "SDL.h"
-#include "mobile.h"
-#include "bullet.h"
+#include "enemy.h"
+//#include "bullet.h"
 
 
 class Bullet;
 
 
-class FixedEnemy : public Mobile, public std::enable_shared_from_this<FixedEnemy> {
+class FixedEnemy : public Enemy {
  public:
   FixedEnemy(int hp, float speed, std::size_t screen_width, std::size_t screen_height,
-        std::size_t init_x, std::size_t init_y, std::size_t size);
-  ~FixedEnemy();
+             std::size_t init_x, std::size_t init_y, std::size_t size);
+  //~FixedEnemy();
 
-  void simulate();
+  //void simulate();
  
   // miscellaneous
-  std::shared_ptr<FixedEnemy> get_shared_this() { return shared_from_this(); }
+  //std::shared_ptr<FixedEnemy> get_shared_this() { return shared_from_this(); }
 
-  bool _bulletSpawned = false;
-  Bullet *_bullet;
+  //bool _bulletSpawned = false;
+  //Bullet *_bullet;
 
  protected:
   //std::vector<std::thread> threads;
-  std::thread t;
+  //std::thread t;
 
  private:
   // typical behaviour methods
-  void cycleThroughPhases();
+  void cycleThroughPhases() override;
 };
 
 #endif

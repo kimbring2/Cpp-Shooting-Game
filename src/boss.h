@@ -15,10 +15,10 @@ class Bullet;
 class Boss : public Enemy {
  public:
   Boss(int hp, float speed, std::size_t screen_width, std::size_t screen_height,
-        std::size_t init_x, std::size_t init_y, std::size_t size);
-  ~Boss();
+       std::size_t init_x, std::size_t init_y, std::size_t size);
+  //~Boss();
 
- void simulate() override;
+ //void simulate() override;
  
  protected:
 

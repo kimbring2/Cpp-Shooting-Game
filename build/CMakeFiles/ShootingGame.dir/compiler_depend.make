@@ -724,6 +724,7 @@ CMakeFiles/ShootingGame.dir/src/boss.cpp.o: /home/kimbring2/CppND-Capstone-Shoot
   /usr/local/include/SDL2/close_code.h
 
 CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.cpp \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \

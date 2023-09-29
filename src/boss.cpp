@@ -12,16 +12,16 @@ Boss::Boss(int hp, float speed, std::size_t screen_width, std::size_t screen_hei
 }
 
 
-Boss::~Boss() {
-  std::cout << "Boss Destructor" << std::endl;
-  t.join();
-}
+//Boss::~Boss() {
+//  std::cout << "Boss Destructor" << std::endl;
+//  t.join();
+//}
 
 
-void Boss::simulate() {
+//void Boss::simulate() {
   // launch drive function in a thread
-  t = std::thread(&Boss::cycleThroughPhases, this);
-}
+//  t = std::thread(&Boss::cycleThroughPhases, this);
+//}
 
 
 // virtual function which is executed in a thread

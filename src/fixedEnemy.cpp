@@ -7,11 +7,12 @@
 
 FixedEnemy::FixedEnemy(int hp, float speed, std::size_t screen_width, std::size_t screen_height,
              std::size_t init_x, std::size_t init_y, std::size_t size) 
-  : Mobile(hp, speed, screen_width, screen_height, init_x, init_y, size) {
-  //std::cout << "FixedEnemy Constructor" << std::endl;
+  : Enemy(hp, speed, screen_width, screen_height, init_x, init_y, size) {
+  //: Mobile(hp, speed, screen_width, screen_height, init_x, init_y, size) {
+  std::cout << "FixedEnemy Constructor" << std::endl;
 }
 
-
+/*
 FixedEnemy::~FixedEnemy() {
   //std::cout << "FixedEnemy Destructor" << std::endl;
   t.join();
@@ -23,7 +24,7 @@ void FixedEnemy::simulate() {
   //threads.emplace_back(std::thread(&FixedEnemy::cycleThroughPhases, this)); 
   t = std::thread(&FixedEnemy::cycleThroughPhases, this);
 }
-
+*/
 
 // virtual function which is executed in a thread
 void FixedEnemy::cycleThroughPhases() {
