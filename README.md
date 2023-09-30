@@ -81,5 +81,5 @@ Below are the rubric points that are addressed/implemented in this project.
 * The project uses smart pointers instead of raw pointers.
 
 ### Concurrency
-* The project uses multithreading: Please check the [Processing loop]([https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#object-hierarchy](https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#processing-loop)https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#processing-loop).
+* The project uses multithreading: Please check the [Processing loop](https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#processing-loop)https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#processing-loop).
 * A mutex or lock is used in the project.
