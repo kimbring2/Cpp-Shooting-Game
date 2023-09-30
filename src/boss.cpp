@@ -48,30 +48,34 @@ void Boss::cycleThroughPhases() {
           break;
         case 3:
           //std::cout << "Direction::kLeft" << std::endl;
-          pos_x -= _speed;
+          pos_x -= _speed * 4;
           break;
         case 4:
           //std::cout << "Direction::kRight" << std::endl;
-          pos_x += _speed;
+          pos_x += _speed * 4;
           break;
+      }
+
+      if (pos_x < 0) {
+        pos_x = 0;
+      } else if(pos_x > 640) {
+        pos_x = 640;
       }
 
       setPosition(pos_x, pos_y);
 
       lastUpdate = std::chrono::system_clock::now();
  
-
-
       // Fire bullet randomly
       int bullet_fire = rand() % 4;
 
       // Bullet offset to make them difficult to avoid
-      int bullet_offset = rand() % 200 - 100;
+      int bullet_offset = rand() % 100 - 100;
       if (bullet_fire == 0) {
         _bullets.clear();
 
         for (int i = -5; i < 5; i++) {
-          int _bullet_pos_x = _pos_x + i * 100 + bullet_offset;
+          int _bullet_pos_x = _pos_x + i * 50 + bullet_offset;
 
           if (_bullet_pos_x > 0) {
             Bullet *bullet = new Bullet(10, 640, 640, _bullet_pos_x, 

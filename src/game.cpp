@@ -11,13 +11,13 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
       random_h(0, static_cast<int>(screen_height - 1)) {   
   player = std::make_shared<Player>(100, 10, screen_width, screen_height, 300, 590, 5, 3);
 
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
-  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
 
-  //_fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
-  //_fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
+  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
+  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
 
   _bosses.emplace_back(std::make_shared<Boss>(1000, 10, screen_width, screen_height, 350, 50, 20));
 }
@@ -117,7 +117,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         if (_bombs.size() == 0) {
           std::shared_ptr<Bomb> bomb = std::make_shared<Bomb>(10, 640, 640, 
             controller._bomb_x, controller._bomb_y, 
-             1, controller._bomb_mine, 40, controller._bomb_direction);
+             1, controller._bomb_mine, 50, controller._bomb_direction);
 
           _bombs.emplace_back(bomb);
           bomb->simulate(); // Start the thread of bomb

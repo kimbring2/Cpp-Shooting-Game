@@ -44,7 +44,7 @@ void Bomb::cycleThroughPhases() {
 
       lastUpdate = std::chrono::system_clock::now();
 
-      if (_timer > 15) {
+      if (_timer > 25) {
         int pos_x, pos_y; 
         getPosition(pos_x, pos_y);
 
@@ -60,12 +60,12 @@ void Bomb::cycleThroughPhases() {
         }
 
         setPosition(pos_x, pos_y);
-      } else if (_timer == 15) {
+      } else if (_timer == 25) {
         //std::cout << "_timer" << _timer << std::endl;
-        if (_timer == 15) {
+        if (_timer == 25) {
           setSize(20);
         }
-      } else if (_timer < 15) {
+      } else if (_timer < 25) {
         // Collsion detection with enemy
         if (getMine()) {
           std::unique_lock<std::mutex> lck(_mtx);
@@ -81,7 +81,7 @@ void Bomb::cycleThroughPhases() {
 
             if (distance_enemy <= collision_dis_enemy * 10) {
               // Enemy collision with Bomb
-              _destroyed = true;
+              //_destroyed = true;
               (*it_e)->toggleAlive();
             }
             
@@ -106,7 +106,7 @@ void Bomb::cycleThroughPhases() {
 
             if (distance_fixed_enemy <= collision_dis_fixed_enemy * 10) {
               // Fixed enemy collision with Bomb
-              _destroyed = true;
+              //_destroyed = true;
               (*it_fe)->toggleAlive();
             }
             
@@ -131,7 +131,7 @@ void Bomb::cycleThroughPhases() {
 
           if (distance_boss <= collision_dis_boss * 5) {
             // Boss collision with bullet
-            _destroyed = true;
+            //_destroyed = true;
             if (boss_hp > 10) {
               (*it_b)->setHp(boss_hp - 10);
             } else {
