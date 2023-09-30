@@ -1,7 +1,7 @@
 # Cpp-Shooting-Game
 The project is 2D arcade shooting using C++ SDL. 
 
-<img src="images/demo_video.gif" width="700">
+<img src="images/demo_video.gif" width="350">
 
 Table of contents
 =================
