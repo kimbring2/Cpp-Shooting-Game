@@ -67,7 +67,7 @@ Below are the rubric points that are addressed/implemented in this project.
 * The project accepts user input and processes the input
 
 ### Object Oriented Programming
-* The project uses Object Oriented Programming techniques: Please check [Object Hierarchy](https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#object-hierarchy)
+* The project uses Object Oriented Programming techniques: Please check [Object Hierarchy](https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#object-hierarchy).
 * Classes use appropriate access specifiers for class members.
 * Class constructors utilize member initialization lists.
 * Classes abstract implementation details from their interfaces.
