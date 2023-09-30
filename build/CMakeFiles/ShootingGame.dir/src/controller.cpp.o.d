@@ -294,4 +294,5 @@ CMakeFiles/ShootingGame.dir/src/controller.cpp.o: \
  /usr/include/c++/9/bits/unique_lock.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h

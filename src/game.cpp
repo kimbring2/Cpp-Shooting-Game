@@ -57,7 +57,7 @@ Game::~Game() {
     delete it->get();
   }
 
-  // delete all fixed bosses
+  // delete all bosses
   for (auto it = std::begin(_bosses); it != std::end(_bosses); ++it) {
     (*it)->toggleAlive();
     (*it) = NULL;
@@ -148,6 +148,20 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         (_fixedEnemy->_bullet)->simulate();
       }
     }
+
+    /*
+    // Check the boss shot the bullet
+    for (auto _boss : _bosses) {
+      if (_boss->_bulletSpawned == true) {
+        _boss->_bulletSpawned = false;
+
+        for (auto _bullet : _boss->_bullets) {
+          _bullets.emplace_back(_bullet);
+          (_bullet)->simulate();
+        }
+      }
+    }
+    */
 
     // Delete the destroyed bullet
     _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), 

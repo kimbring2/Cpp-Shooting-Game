@@ -185,7 +185,7 @@ void Bullet::cycleThroughPhases() {
         lck.unlock();
       }
 
-      // Collsion detection with fixed enemy
+      // Collsion detection with boss
       if (getMine()) {
         std::unique_lock<std::mutex> lck(_mtx);
         for (auto it_b = _bosses.begin(); it_b != _bosses.end();) {

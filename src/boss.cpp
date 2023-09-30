@@ -1,5 +1,6 @@
 #include "mobile.h"
 #include "boss.h"
+#include "bullet.h"
 #include <cmath>
 #include <iostream>
 #include <thread>
@@ -10,18 +11,6 @@ Boss::Boss(int hp, float speed, std::size_t screen_width, std::size_t screen_hei
   : Enemy(hp, speed, screen_width, screen_height, init_x, init_y, size) {
   std::cout << "Boss Constructor" << std::endl;
 }
-
-
-//Boss::~Boss() {
-//  std::cout << "Boss Destructor" << std::endl;
-//  t.join();
-//}
-
-
-//void Boss::simulate() {
-  // launch drive function in a thread
-//  t = std::thread(&Boss::cycleThroughPhases, this);
-//}
 
 
 // virtual function which is executed in a thread
@@ -75,7 +64,13 @@ void Boss::cycleThroughPhases() {
       // Fire bullet randomly
       int bullet_fire = rand() % 4;
       if (bullet_fire == 0) {
-        _bullet = new Bullet(10, 640, 640, _pos_x, _pos_y, 1, false, Bullet::Direction::kDown);
+        for (int i = 0; i < 5; i++) {
+          //std::cout << i << std::endl;
+          Bullet *bullet = new Bullet(10, 640, 640, _pos_x, _pos_y + 5 * i, 1, 
+                                      false, Bullet::Direction::kDown);
+          _bullets.emplace_back(bullet);
+        }
+
         _bulletSpawned = true;
       }
     }

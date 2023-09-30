@@ -14,6 +14,66 @@ GameObject::GameObject(std::size_t screen_width, std::size_t screen_height,
 }
 
 
+GameObject::GameObject(const GameObject &source) {
+  std::cout << "GameObject: Copy constructor\n";
+                       
+  _pos_x = source._pos_x;
+  _pos_y = source._pos_y;
+  _screen_height = source._screen_height;
+  _screen_width = source._screen_width;
+  _size = source._size;
+}
+
+
+GameObject& GameObject::operator=(const GameObject &source){
+  std::cout << "GameObject: Copy assignment operator \n";
+  
+  _pos_x = source._pos_x;
+  _pos_y = source._pos_y;
+  _screen_height = source._screen_height;
+  _screen_width = source._screen_width;
+  _size = source._size;
+
+  return *this;
+}
+
+
+GameObject::GameObject(GameObject &&source) {
+  std::cout << "GameObject: Move Constructor\n";
+
+  _pos_x = source._pos_x;
+  _pos_y = source._pos_y;
+  _screen_height = source._screen_height;
+  _screen_width = source._screen_width;
+  _size = source._size;
+
+  //source._pos_x = nullptr;
+  //source._pos_y = nullptr;
+  //source._screen_height = nullptr;
+  //source._screen_width = nullptr;
+  //source._size = nullptr;
+}
+
+
+GameObject& GameObject::operator=(GameObject &&source) {
+  std::cout << "GameObject: Move assignment operator\n";
+
+  _pos_x = source._pos_x;
+  _pos_y = source._pos_y;
+  _screen_height = source._screen_height;
+  _screen_width = source._screen_width;
+  _size = source._size;
+
+  //source._pos_x = nullptr;
+  //source._pos_y = nullptr;
+  //source._screen_height = nullptr;
+  //source._screen_width = nullptr;
+  //source._size = nullptr;
+
+  return *this;
+}
+
+
 void GameObject::setPosition(int x, int y) {
     _pos_x = x;
     _pos_y = y;

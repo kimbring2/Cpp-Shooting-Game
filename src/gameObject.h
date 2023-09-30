@@ -22,21 +22,23 @@ class GameObject {
   //~GameObject();
 
   // getter and setter
-  int getID() { return _id; }
   int getSize() { return _size; }
   void setSize(int size) { _size = size; }
 
   void setPosition(int x, int y);
   void getPosition(int &x, int &y);
-  ObjectType getType() { return _type; }
 
   virtual void Update() {};
 
   bool GameObjectCell(int x, int y);
 
+  // Copy and move assignment constructor
+  GameObject(const GameObject &source);
+  GameObject& operator=(const GameObject &source);
+  GameObject(GameObject &&source);
+  GameObject& operator=(GameObject &&source);
+
  protected:
-  ObjectType _type;                 // identifies the class type
-  int _id;                          // every game object has its own unique id
   int _pos_x, _pos_y;               // object position in pixels
   int _screen_height, _screen_width;
   int _size{1};

@@ -295,6 +295,7 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.h \
  /usr/include/c++/9/random /usr/include/c++/9/bits/random.h \
  /usr/include/c++/9/bits/uniform_int_dist.h \
@@ -315,5 +316,4 @@ CMakeFiles/ShootingGame.dir/src/main.cpp.o: \
  /usr/include/c++/9/bits/erase_if.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/renderer.h \
  /usr/include/SDL_ttf.h /usr/local/include/SDL2/begin_code.h \
- /usr/local/include/SDL2/close_code.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h
+ /usr/local/include/SDL2/close_code.h

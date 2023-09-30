@@ -3,6 +3,7 @@
 
 CMakeFiles/ShootingGame.dir/src/bomb.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.cpp \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
@@ -1086,6 +1087,7 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
 
 CMakeFiles/ShootingGame.dir/src/controller.cpp.o: /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.cpp \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h \
+  /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.h \
   /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
@@ -4502,14 +4504,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vbmi2vlintrin.h:
 
-/usr/include/c++/9/tr1/ell_integral.tcc:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/wbnoinvdintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/tmmintrin.h:
-
-/usr/include/strings.h:
-
 /usr/include/c++/9/bits/stl_algo.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512pfintrin.h:
@@ -4644,10 +4638,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/bits/stl_algobase.h:
 
-/usr/local/include/SDL2/SDL_cpuinfo.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
 /usr/include/c++/9/vector:
 
 /usr/include/c++/9/bits/cxxabi_init_exception.h:
@@ -4684,6 +4674,24 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/backward/binders.h:
 
+/usr/include/c++/9/backward/auto_ptr.h:
+
+/usr/include/c++/9/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/9/limits:
+
+/usr/include/c++/9/bits/stl_vector.h:
+
+/usr/include/c++/9/bits/allocated_ptr.h:
+
+/usr/include/c++/9/bits/stl_construct.h:
+
+/usr/include/c++/9/bits/uses_allocator.h:
+
+/usr/include/c++/9/bits/unique_ptr.h:
+
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h:
+
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/bomb.h:
 
 /usr/include/ctype.h:
@@ -4717,16 +4725,6 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/include/c++/9/tr1/bessel_function.tcc:
 
 /usr/include/c++/9/system_error:
-
-/usr/include/c++/9/bits/uses_allocator.h:
-
-/usr/include/c++/9/bits/unique_ptr.h:
-
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/gameObject.h:
-
-/usr/include/c++/9/bits/allocated_ptr.h:
-
-/usr/include/c++/9/bits/stl_construct.h:
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h:
 
@@ -4762,21 +4760,17 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/bits/predefined_ops.h:
 
-/usr/include/c++/9/bits/exception.h:
-
-/usr/include/alloca.h:
-
 /usr/local/include/SDL2/SDL_rwops.h:
 
 /usr/include/c++/9/tr1/poly_hermite.tcc:
 
-/usr/include/c++/9/backward/auto_ptr.h:
+/usr/include/alloca.h:
 
-/usr/include/c++/9/tr1/modified_bessel_func.tcc:
+/usr/include/c++/9/bits/exception.h:
 
-/usr/include/c++/9/limits:
+/usr/local/include/SDL2/SDL_cpuinfo.h:
 
-/usr/include/c++/9/bits/stl_vector.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/avx512vbmi2intrin.h:
 
@@ -4867,6 +4861,14 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 /usr/lib/gcc/x86_64-linux-gnu/9/include/fxsrintrin.h:
 
 /usr/include/c++/9/cctype:
+
+/usr/include/c++/9/tr1/ell_integral.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/wbnoinvdintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/tmmintrin.h:
+
+/usr/include/strings.h:
 
 /usr/include/c++/9/ext/concurrence.h:
 

@@ -1,5 +1,6 @@
 #include "mobile.h"
 #include "enemy.h"
+#include "bullet.h"
 #include <cmath>
 #include <iostream>
 #include <thread>
@@ -20,7 +21,6 @@ Enemy::~Enemy() {
 
 void Enemy::simulate() {
   // launch drive function in a thread
-  //threads.emplace_back(std::thread(&Enemy::cycleThroughPhases, this)); 
   t = std::thread(&Enemy::cycleThroughPhases, this);
 }
 

@@ -294,4 +294,5 @@ CMakeFiles/ShootingGame.dir/src/bomb.cpp.o: \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/player.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h

@@ -8,11 +8,8 @@
 
 #include "SDL.h"
 #include "mobile.h"
-#include "bullet.h"
-
 
 class Bullet;
-
 
 class Enemy : public Mobile, public std::enable_shared_from_this<Enemy> {
  public:
