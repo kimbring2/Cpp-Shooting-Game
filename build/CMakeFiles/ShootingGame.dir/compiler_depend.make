@@ -775,6 +775,8 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/postypes.h \
   /usr/include/c++/9/bits/predefined_ops.h \
   /usr/include/c++/9/bits/ptr_traits.h \
+  /usr/include/c++/9/bits/random.h \
+  /usr/include/c++/9/bits/random.tcc \
   /usr/include/c++/9/bits/range_access.h \
   /usr/include/c++/9/bits/refwrap.h \
   /usr/include/c++/9/bits/shared_ptr.h \
@@ -790,6 +792,7 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/stl_iterator.h \
   /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/9/bits/stl_iterator_base_types.h \
+  /usr/include/c++/9/bits/stl_numeric.h \
   /usr/include/c++/9/bits/stl_pair.h \
   /usr/include/c++/9/bits/stl_raw_storage_iter.h \
   /usr/include/c++/9/bits/stl_relops.h \
@@ -800,6 +803,7 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/bits/streambuf_iterator.h \
   /usr/include/c++/9/bits/string_view.tcc \
   /usr/include/c++/9/bits/stringfwd.h \
+  /usr/include/c++/9/bits/uniform_int_dist.h \
   /usr/include/c++/9/bits/unique_lock.h \
   /usr/include/c++/9/bits/unique_ptr.h \
   /usr/include/c++/9/bits/uses_allocator.h \
@@ -836,10 +840,13 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/c++/9/memory \
   /usr/include/c++/9/mutex \
   /usr/include/c++/9/new \
+  /usr/include/c++/9/numeric \
   /usr/include/c++/9/ostream \
   /usr/include/c++/9/pstl/execution_defs.h \
   /usr/include/c++/9/pstl/glue_memory_defs.h \
+  /usr/include/c++/9/pstl/glue_numeric_defs.h \
   /usr/include/c++/9/pstl/pstl_config.h \
+  /usr/include/c++/9/random \
   /usr/include/c++/9/ratio \
   /usr/include/c++/9/stdexcept \
   /usr/include/c++/9/stdlib.h \
@@ -962,6 +969,7 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: /home/kimbring2/CppND-Capstone-Sho
   /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/opt_random.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
@@ -4326,15 +4334,9 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/c++/9/unordered_map:
 
-/usr/include/c++/9/random:
-
-/usr/include/c++/9/numeric:
-
 /usr/include/c++/9/functional:
 
 /usr/include/c++/9/bits/unordered_map.h:
-
-/usr/include/c++/9/bits/uniform_int_dist.h:
 
 /usr/include/c++/9/bits/stl_heap.h:
 
@@ -4350,13 +4352,19 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/game.h:
 
-/usr/include/c++/9/bits/stl_numeric.h:
-
-/home/kimbring2/CppND-Capstone-Shooting-Game/src/game.cpp:
-
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.cpp:
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/controller.cpp:
+
+/usr/include/c++/9/random:
+
+/usr/include/c++/9/numeric:
+
+/usr/include/c++/9/bits/uniform_int_dist.h:
+
+/home/kimbring2/CppND-Capstone-Shooting-Game/src/game.cpp:
+
+/usr/include/c++/9/bits/stl_numeric.h:
 
 /home/kimbring2/CppND-Capstone-Shooting-Game/src/bullet.cpp:
 
@@ -4744,9 +4752,9 @@ CMakeFiles/ShootingGame.dir/src/renderer.cpp.o: /home/kimbring2/CppND-Capstone-S
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/usr/include/c++/9/pstl/glue_numeric_defs.h:
-
 /usr/include/c++/9/bits/std_function.h:
+
+/usr/include/c++/9/pstl/glue_numeric_defs.h:
 
 /usr/local/include/SDL2/close_code.h:
 

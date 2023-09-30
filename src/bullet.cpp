@@ -2,6 +2,7 @@
 #include "boss.h"
 #include <cmath>
 #include <iostream>
+#include <random>
 
 
 std::mutex Bullet::_mtx;
@@ -65,6 +66,7 @@ void Bullet::cycleThroughPhases() {
 
   // init stop watch
   lastUpdate = std::chrono::system_clock::now();
+
   while (!_destroyed) {
     //std::cout << "Bullet, cycleThroughPhases" << std::endl;
 
@@ -76,7 +78,8 @@ void Bullet::cycleThroughPhases() {
         lastUpdate).count();
 
     if (timeSinceLastUpdate >= cycleDuration) {
-      //std::cout << "Bullet, cycleThroughPhases" << std::endl;
+      //std::cout << "Bullet, cycleThroughPhases: " << step << std::endl;
+
       int pos_x, pos_y; 
       getPosition(pos_x, pos_y);
 

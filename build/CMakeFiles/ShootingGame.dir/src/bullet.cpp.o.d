@@ -294,4 +294,10 @@ CMakeFiles/ShootingGame.dir/src/bullet.cpp.o: \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/mobile.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/enemy.h \
  /home/kimbring2/CppND-Capstone-Shooting-Game/src/fixedEnemy.h \
- /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h
+ /home/kimbring2/CppND-Capstone-Shooting-Game/src/boss.h \
+ /usr/include/c++/9/random /usr/include/c++/9/bits/random.h \
+ /usr/include/c++/9/bits/uniform_int_dist.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/opt_random.h \
+ /usr/include/c++/9/bits/random.tcc /usr/include/c++/9/numeric \
+ /usr/include/c++/9/bits/stl_numeric.h \
+ /usr/include/c++/9/pstl/glue_numeric_defs.h

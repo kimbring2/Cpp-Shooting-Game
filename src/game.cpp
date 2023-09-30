@@ -11,15 +11,15 @@ Game::Game(std::size_t screen_width, std::size_t screen_height)
       random_h(0, static_cast<int>(screen_height - 1)) {   
   player = std::make_shared<Player>(100, 10, screen_width, screen_height, 300, 590, 5, 3);
 
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
-  _enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 100, 300, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 120, 250, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 379, 50, 5));
+  //_enemies.emplace_back(std::make_shared<Enemy>(100, 10, screen_width, screen_height, 250, 170, 5));
 
-  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
-  _fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
+  //_fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 140, 170, 5));
+  //_fixedEnemies.emplace_back(std::make_shared<FixedEnemy>(100, 10, screen_width, screen_height, 500, 350, 5));
 
-  _bosses.emplace_back(std::make_shared<Boss>(100, 10, screen_width, screen_height, 500, 350, 20));
+  _bosses.emplace_back(std::make_shared<Boss>(1000, 10, screen_width, screen_height, 350, 50, 20));
 }
 
 
@@ -149,7 +149,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
       }
     }
 
-    /*
+    
     // Check the boss shot the bullet
     for (auto _boss : _bosses) {
       if (_boss->_bulletSpawned == true) {
@@ -161,7 +161,7 @@ void Game::Run(Controller &controller, Renderer &renderer, std::size_t target_fr
         }
       }
     }
-    */
+    
 
     // Delete the destroyed bullet
     _bullets.erase(std::remove_if(_bullets.begin(), _bullets.end(), 

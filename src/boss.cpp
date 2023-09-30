@@ -22,7 +22,6 @@ void Boss::cycleThroughPhases() {
   // init stop watch
   lastUpdate = std::chrono::system_clock::now();
 
-  int step = 0;
   while (_alive) {
     // sleep at every iteration to reduce CPU usage
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -61,20 +60,28 @@ void Boss::cycleThroughPhases() {
 
       lastUpdate = std::chrono::system_clock::now();
  
+
+
       // Fire bullet randomly
       int bullet_fire = rand() % 4;
+
+      // Bullet offset to make them difficult to avoid
+      int bullet_offset = rand() % 200 - 100;
       if (bullet_fire == 0) {
-        for (int i = 0; i < 5; i++) {
-          //std::cout << i << std::endl;
-          Bullet *bullet = new Bullet(10, 640, 640, _pos_x, _pos_y + 5 * i, 1, 
-                                      false, Bullet::Direction::kDown);
-          _bullets.emplace_back(bullet);
+        _bullets.clear();
+
+        for (int i = -5; i < 5; i++) {
+          int _bullet_pos_x = _pos_x + i * 100 + bullet_offset;
+
+          if (_bullet_pos_x > 0) {
+            Bullet *bullet = new Bullet(10, 640, 640, _bullet_pos_x, 
+                                        _pos_y, 1, false, Bullet::Direction::kDown);
+            _bullets.emplace_back(bullet);
+          }
         }
 
         _bulletSpawned = true;
       }
     }
-
-    step += 1;
   }
 }
