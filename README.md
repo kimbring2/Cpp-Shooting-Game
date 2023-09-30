@@ -1,6 +1,8 @@
 # Cpp-Shooting-Game
 The project is 2D arcade shooting using C++ SDL. 
 
+<img src="images/demo_video.gif" width="700">
+
 Table of contents
 =================
 <!--ts-->
@@ -48,6 +50,7 @@ Table of contents
 | Left  | Move to Leftside  |
 | Right  | Move to Right side  |
 | A  | Use Normal Weapon  |
+| B  | Use Bomb Weapon  |
 | ESC  | Exit Game  |
 
 ## Processing loop
