@@ -77,7 +77,7 @@ Below are the rubric points that are addressed/implemented in this project.
 * Derived class functions override virtual base class functions.
 
 ### Memory management
-* The project uses destructors appropriately: Please check the [bullet.h#L28]([https://github.com/kimbring2/Cpp-Shooting-Game/tree/submission#processing-loop](https://github.com/kimbring2/Cpp-Shooting-Game/blob/submission/src/bullet.h#L28).
+* The project uses destructors appropriately: Please check the [bullet.h#L28](https://github.com/kimbring2/Cpp-Shooting-Game/blob/submission/src/bullet.h#L28).
 * The project uses smart pointers instead of raw pointers: Please check the [game.h#L30](https://github.com/kimbring2/Cpp-Shooting-Game/blob/submission/src/game.h#L30).
 
 ### Concurrency
